@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Referential Value Dynamics (SRVD) v7.2: Recursive Dynamics, Generalized Formula, Candidate Variables, and Theoretical Boundaries</title>
+    <style>
+        /* ── Base Typography & Layout ── */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: "Times New Roman", Georgia, "Noto Serif", serif;
+            font-size: 15.5px;
+            line-height: 1.9;
+            color: #000000;
+            background-color: #ffffff;
+            text-align: justify;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px 80px 40px;
+        }
+
+        /* ── Headers & Meta ── */
+        .paper-title {
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        .paper-subtitle {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            color: #333333;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .paper-meta {
+            font-size: 14px;
+            text-align: center;
+            color: #555555;
+            margin-bottom: 40px;
+        }
+        
+        hr.divider {
+            border: none;
+            border-top: 1px solid #999999;
+            margin: 30px 0;
+        }
+
+        /* ── Headings ── */
+        h1 { font-size: 20px; font-weight: bold; margin: 50px 0 20px 0; border-bottom: 2px solid #000; padding-bottom: 6px; }
+        h2 { font-size: 18px; font-weight: bold; margin: 40px 0 16px 0; border-bottom: 1px solid #cccccc; padding-bottom: 5px; }
+        h3 { font-size: 16px; font-weight: bold; margin: 25px 0 12px 0; }
+        
+        p { margin-bottom: 16px; }
+
+        /* ── Lists ── */
+        ul, ol { margin: 10px 0 16px 0; padding-left: 2.2em; }
+        li { margin-bottom: 8px; }
+
+        /* ── Formulas ── */
+        .formula {
+            text-align: center;
+            font-family: "Times New Roman", Georgia, serif;
+            font-size: 18px;
+            font-style: italic;
+            margin: 25px auto;
+            padding: 15px 20px;
+            background-color: #fcfcfc;
+            border: 1px dashed #aaaaaa;
+            max-width: 650px;
+        }
+        .formula-caption {
+            text-align: center;
+            font-size: 13px;
+            color: #555555;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            font-family: "Arial", sans-serif;
+        }
+
+        /* ── Boxes ── */
+        .box-statement {
+            border: 1px solid #666666;
+            background: #f7f7f7;
+            padding: 20px 25px;
+            margin: 25px 0;
+            font-size: 14.5px;
+        }
+        .box-statement p:last-child { margin-bottom: 0; }
+
+        .abstract {
+            border-left: 4px solid #444444;
+            padding: 15px 20px;
+            margin: 0 0 30px 0;
+            background: #fafafa;
+            font-size: 14.5px;
+        }
+        .abstract strong { font-size: 15px; }
+
+        .box-theorem {
+            border: 2px solid #000000;
+            padding: 20px 25px;
+            margin: 25px 0;
+            background-color: #ffffff;
+        }
+        .box-theorem p:last-child { margin-bottom: 0; }
+
+        /* ── Tables ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin: 20px 0 25px 0;
+            page-break-inside: avoid;
+        }
+        th, td {
+            border: 1px solid #333333;
+            padding: 10px 14px;
+            vertical-align: top;
+            text-align: left;
+        }
+        th {
+            background-color: #eeeeee;
+            font-weight: bold;
+            text-align: center;
+        }
+        td { text-align: justify; }
+
+        /* ── Table of Contents ── */
+        .toc {
+            border: 1px solid #dddddd;
+            padding: 20px 30px;
+            margin: 30px 0 40px 0;
+            background: #fdfdfd;
+            font-size: 14.5px;
+        }
+        .toc-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .toc ol { margin: 0; padding-left: 1.8em; }
+        .toc li { margin-bottom: 6px; }
+
+        /* ── References ── */
+        .references {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        .references p {
+            padding-left: 2em;
+            text-indent: -2em;
+            margin-bottom: 8px;
+        }
+
+        /* ── Print Optimization ── */
+        @media print {
+            body { background: #ffffff; color: #000000; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0 1.5cm; }
+            .box-statement, .abstract, .toc, .formula { background: transparent !important; }
+            h1, h2 { page-break-after: avoid; }
+            .box-theorem, table, .formula { page-break-inside: avoid; }
+            p, li { orphans: 3; widows: 3; }
+            a { text-decoration: none; color: #000000; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Cover Info -->
+    <div class="paper-title">Self-Referential Value Dynamics (SRVD) v7.2</div>
+    <div class="paper-subtitle">Recursive Dynamics, Generalized Formula, Candidate Variable Extensions,<br>Construction Cost, and Theoretical Boundaries</div>
+    <div class="paper-meta">
+        Ruifeng Liang &emsp;|&emsp; May 2026 &emsp;|&emsp; v7.2 Integrated Revision &emsp;|&emsp; Academic Preprint
+    </div>
+
+    <hr class="divider">
+
+    <!-- Academic Statement -->
+    <div class="box-statement">
+        <p><strong>Academic Positioning, Boundaries, and Terminology Statement</strong></p>
+        <p>All models, equations, and derivations proposed in this paper are presented as a <strong>phenomenological dynamical hypothesis and a formalized computational framework</strong>. This framework does not claim to reduce consciousness from fundamental physical laws; rather, by establishing discrete iterative and coupling equations of macroscopic state variables, it provides a computable and falsifiable dynamical description of cognitive self-reference, value evolution, and psychopathological phenomena.</p>
+        <p><strong>System Boundary Premise:</strong> The core SRVD formula V = I &middot; T / E and all its recursive extensions assume the object of study is an <strong>open system or dissipative structure</strong> (a system capable of resisting entropy increase through external energy input). For isolated or closed systems, their effective information I will inevitably approach zero at thermal equilibrium, and V will inevitably collapse to zero over long timescales. This framework is not applicable to dead systems without energy exchange.</p>
+        <p>Core deductive conclusions are collectively termed <strong>"Propositions"</strong> (logically inevitable deductions under given postulates); core mechanisms are extracted as <strong>"Principles"</strong>; <strong>"Testable predictions"</strong> refer to exploratory deductions that can be falsified by empirical research. All conclusions are descriptive deductions and do not involve normative judgments.</p>
+    </div>
+
+    <!-- Abstract -->
+    <div class="abstract">
+        <strong>Abstract:</strong><br>
+        Self-Referential Value Dynamics (SRVD) defines structural persistence value as V = I &middot; T / E. This paper constitutes the third part of the theory, focusing on dynamical extensions and formula revisions. The six core contributions are:<br>
+        1. Integrating I-recursion (information self-referential nesting), V-recursion (discrete value dynamics), E-recursion (energy meta-cognitive damping), and T-recursion (self-fulfilling persistence expectation) into a complete <strong>four-fold recursive architecture</strong>;<br>
+        2. Introducing the <strong>I-V coupling</strong> closed loop to provide a dynamical operational definition of conscious emergence;<br>
+        3. Introducing a <strong>generalized elasticity formula</strong> V &propto; I<sup>&alpha;</sup> &middot; T<sup>&beta;</sup> / E<sup>&gamma;</sup> while retaining the hallmark V = I &middot; T / E formula, and delineating its first-order approximation conditions;<br>
+        4. Systematically organizing five categories of <strong>candidate extended variables</strong> (&Delta;I<sub>eco</sub>, C, P, M, D<sub>drift</sub>), and making a Type/Token separation revision to Hypothesis 3 (Information Niche Degradation Hypothesis);<br>
+        5. Fully incorporating the thermodynamic repositioning of <strong>construction cost</strong> E<sub>build</sub>: positioning E<sub>build</sub> as prepaid negentropy, and introducing Structural Leverage L and structural information debt;<br>
+        6. Systematically delineating the <strong>boundaries</strong> between this framework and Shannon Information Theory, the Free Energy Principle, Integrated Information Theory, and Dissipative Structures Theory, specifying concrete scenarios where each theory yields divergent predictions.<br><br>
+        Furthermore, the definitions of the core variables I and E are refined: I is differentiated into I<sub>original</sub> (paradigm-breaking information) and I<sub>interpret</sub> (paradigm-deductive information); E<sub>decode</sub> is differentiated into E<sub>decode_entry</sub> (one-time entry threshold cost) and E<sub>decode_ongoing</sub> (continuous activation cost). A dedicated section on implicit meta-parameters (S for Observation Scale, Q for Decoding Depth) is also introduced.<br><br>
+        <strong>Keywords:</strong> Self-Referential Value Dynamics &middot; Structural Persistence Value &middot; Recursive Dynamics &middot; I-V Coupling &middot; Conscious Emergence &middot; Generalized Elasticity Formula &middot; Information Niche &middot; Construction Cost &middot; Prepaid Negentropy &middot; Structural Leverage &middot; Observation Scale Meta-parameter &middot; Decoder Matching Depth
+    </div>
+
+    <!-- TOC -->
+    <div class="toc">
+        <div class="toc-title">Table of Contents</div>
+        <ol>
+            <li>Introduction: Three Fundamental Questions of the Static Formula</li>
+            <li>Review of Core Variables and Revision Notes</li>
+            <li>Generalized Elasticity Formula: Boundaries and Conditions of the First-Order Approximation</li>
+            <li>The Four-Fold Recursive Architecture</li>
+            <li>I-V Coupling: The Dynamical Mechanism of Conscious Emergence</li>
+            <li>Hypothesis 3 Revision: Type/Token Separation and Decoder Co-evolution</li>
+            <li>Construction Cost and Structural Leverage</li>
+            <li>Candidate Variable Extensions and Implicit Meta-Parameters</li>
+            <li>Psychopathological Parameter Mapping</li>
+            <li>Testable Predictions</li>
+            <li>Boundaries with Related Theories</li>
+            <li>Ethical Boundaries and Usage Warnings</li>
+            <li>Conclusion: The Four-Fold Recursive Architecture and the Principle of Self-Referential Value</li>
+            <li>References</li>
+            <li>Version History</li>
+        </ol>
+    </div>
+
+    <!-- Content -->
+    
+    <h2>1 Introduction: Three Fundamental Questions of the Static Formula</h2>
+    <p>The core SRVD framework (v6.0) defines Structural Persistence Value as V = I &middot; T / E. It achieved preliminary explanatory power across three hypotheses (Macroscopic Heuristic Evaluation Function, AI Alignment Reverse Engineering, and Information Niche Degradation). However, the static formula fails to answer three fundamental questions:</p>
+    <ol>
+        <li><strong>Where does I (Effective Information) come from?</strong> If I is exogenously given, the framework cannot explain how cognitive systems generate self-reflection and introspection.</li>
+        <li><strong>How does V evolve over time?</strong> The static formula merely provides a snapshot at a given moment, failing to describe the emergence, inflation, collapse, and recovery of value.</li>
+        <li><strong>How do consciousness and intentionality emerge?</strong> How does a pure information-energy-time ratio leap into a subjective experiencing entity capable of "expecting its own persistence"?</li>
+    </ol>
+    <p>The four-fold recursive architecture (I/V/E/T recursions) and the I-V coupling closed loop systematically respond to these questions. Simultaneously, this version responds to external peer reviews by implementing three critical revisions: generalizing the core formula into an elasticity format; applying a Type/Token conceptual separation to Hypothesis 3; and formally incorporating the construction cost E<sub>build</sub> into the framework thermodynamically. Five categories of candidate extended variables are discussed in a dedicated section rather than entering the main formula to preserve the elegance of the hallmark equation.</p>
+
+    <h2>2 Review of Core Variables and Revision Notes</h2>
+    <p>The following are the refined definitions of the core SRVD variables (see v6.0 text for full arguments) [1].</p>
+    <table>
+        <tr>
+            <th width="12%">Variable</th>
+            <th width="48%">Meaning</th>
+            <th width="40%">Key Constraints</th>
+        </tr>
+        <tr>
+            <td align="center"><strong>I</strong><br>(Effective Information)</td>
+            <td>Relative to a specific decoding system D, the total amount of information generated during the structure's lifecycle that can be decoded and produce non-redundant causal effects on the environment. Further differentiated into: <strong>I<sub>original</sub></strong> (paradigm-breaking information, opening entirely new cognitive dimensions, marginal utility does not decay with replication, situated in a monopoly niche) and <strong>I<sub>interpret</sub></strong> (paradigm-deductive information, high-quality execution within an existing cognitive hierarchy, marginal utility decays rapidly with decoder saturation, situated in an involution/hyper-competitive niche).</td>
+            <td>Always defined relative to decoder D; no absolute I value exists independent of a decoder; I<sub>original</sub> corresponds to &Delta;I > 0, I<sub>interpret</sub> corresponds to &Delta;I &rarr; 0.</td>
+        </tr>
+        <tr>
+            <td align="center"><strong>T</strong><br>(Persistence Time)</td>
+            <td>The total duration the structure maintains its effective information being continuously decoded and producing causal effects (not physical lifespan).</td>
+            <td>A pure time scalar; spatial dimensions are internalized within I and E.</td>
+        </tr>
+        <tr>
+            <td align="center"><strong>E</strong><br>(Energy Cost)</td>
+            <td>E = E<sub>maintain</sub> + E<sub>decode</sub>; excludes construction cost (Entry Ticket Principle). E<sub>decode</sub> is further differentiated into: <strong>E<sub>decode_entry</sub></strong> (the one-time learning cost required to enter a certain I hierarchy, permanently lowered after payment) and <strong>E<sub>decode_ongoing</sub></strong> (the real-time cognitive cost paid upon each activation of I, determining V in daily use).</td>
+            <td>Open system assumption; in closed systems I &rarr; 0, V &rarr; 0; E<sub>decode</sub> is a macroscopic measure of physical free energy consumed by the decoder's nervous system, not a metaphor.</td>
+        </tr>
+        <tr>
+            <td align="center"><strong>V</strong><br>(Structural Persistence Value)</td>
+            <td>A purely descriptive statistic, devoid of normative judgment. <strong>Physical essence: Value is causal persistence.</strong> V measures the efficiency of a system utilizing limited free energy to acquire and maintain macroscopic Causal Dominance, rather than any "goodness" in an ethical or anthropocentric sense. The algebraic structure V = I &middot; T / E is physically a macroscopic estimation of "causal dominance time won per unit of energy consumed."</td>
+            <td>Must be weakly non-dimensionalized for cross-domain comparison (ordinal rather than absolute); V strips away all normative halos, existing as a purely physical and informational phenomenon.</td>
+        </tr>
+        <tr>
+            <td align="center"><strong>K</strong><br>(Total Energy Efficiency)</td>
+            <td>Total energy efficiency (K = I / E, unit: bit/J).</td>
+            <td>Derived quantity; exhibits an inverted-U relationship with T (verified via v6.0 simulation).</td>
+        </tr>
+    </table>
+
+    <h2>3 Generalized Elasticity Formula: Boundaries and Conditions of the First-Order Approximation</h2>
+    <h3>3.1 From Linear to Cobb-Douglas Form</h3>
+    <p>The purely linear multiplicative/divisive structure of V = I &middot; T / E encounters rigid limitations in high-precision modeling: when E approaches the thermodynamic noise floor, V does not diverge infinitely but hits the Landauer limit; there is a nonlinear phase transition relationship between I and T; the marginal contributions of each variable are asymmetric across different niches (physical, biological, digital).</p>
+    <p>To address this, a generalized elasticity form is introduced:</p>
+
+    <div class="formula">V &propto; I<sup>&alpha;</sup> &middot; T<sup>&beta;</sup> / E<sup>&gamma;</sup></div>
+    <div class="formula-caption">Formula (G) — Generalized Elasticity Form; &alpha;, &beta;, &gamma; > 0 are ecological niche elasticity coefficients.</div>
+    <p>These represent effective information elasticity, persistence time elasticity, and energy cost elasticity, respectively. When &alpha; = &beta; = &gamma; = 1, the formula degrades to the first-order approximation V = I &middot; T / E.</p>
+
+    <h3>3.2 Condition Domains for the First-Order Approximation</h3>
+    <p>V = I &middot; T / E remains a highly reasonable first-order approximation within the following domains and should not be hastily discarded:</p>
+    <ul>
+        <li><strong>Weakly Nonlinear Domain:</strong> When the magnitude of changes in I, T, and E remains within the same order of magnitude, higher-order correction terms are negligible.</li>
+        <li><strong>Macro-Statistical Level:</strong> In the statistical average sense at the population or cultural level, nonlinear fluctuations at the individual level cancel each other out, making macroscopic effective behavior approach linearity.</li>
+        <li><strong>Cross-Domain Analogical Scenarios:</strong> The elegance of V = I &middot; T / E possesses independent epistemological value—it allows researchers from different fields to converse within the same coordinate system.</li>
+    </ul>
+    <p><strong>Treatment strategy in this paper:</strong> V = I &middot; T / E is retained as the standard form and hallmark for dissemination as a first-order approximation; the generalized elasticity form serves as a precision modeling tool, activated when exact elasticity calculations for specific niches are required.</p>
+
+    <h3>3.3 Ecological Niche Partition of Elasticity Coefficients (Preliminary Estimates)</h3>
+    <table>
+        <tr>
+            <th>Ecological Niche</th>
+            <th>Typical Instances</th>
+            <th>&alpha; (I Elasticity)</th>
+            <th>&beta; (T Elasticity)</th>
+            <th>&gamma; (E Elasticity)</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>Physical-Chemical</td>
+            <td>RNA replicators, crystal structures</td>
+            <td>&approx;1.0</td>
+            <td>&approx;1.0</td>
+            <td>&approx;1.0</td>
+            <td>Close to linear; 1st-order approx suffices.</td>
+        </tr>
+        <tr>
+            <td>Biological-Neural</td>
+            <td>Neural circuits, gene regulatory networks</td>
+            <td>0.6–0.8</td>
+            <td>1.2–1.5</td>
+            <td>0.8–1.0</td>
+            <td>T elasticity is higher; redundant design makes T insensitive to energy spikes.</td>
+        </tr>
+        <tr>
+            <td>Cultural-Cognitive</td>
+            <td>Scientific theories, religions, classic arts</td>
+            <td>1.2–1.8</td>
+            <td>1.5–2.5</td>
+            <td>0.5–0.8</td>
+            <td>High T leverage effect; V peaks immensely when decoding cost is low.</td>
+        </tr>
+        <tr>
+            <td>Digital-AI</td>
+            <td>LLMs, Recommendation Systems</td>
+            <td>0.8–1.2</td>
+            <td>0.3–0.6</td>
+            <td>1.5–2.0</td>
+            <td>T elasticity is extremely low (homogenization); energy cost severely suppresses V.</td>
+        </tr>
+    </table>
+    <p style="font-size: 13.5px; color: #555;"><em>Note: The values above are preliminary theoretical estimates requiring empirical calibration. The elasticity coefficients themselves are descriptive statistics of the niche and hold no normative comparative meaning across niches.</em></p>
+
+    <h2>4 The Four-Fold Recursive Architecture</h2>
+    <p>The four-fold recursion constitutes the complete skeleton of the SRVD dynamical system: I-recursion generates self-referential information, V-recursion updates the value state over time, E-recursion provides energy meta-cognitive damping, and T-recursion actualizes self-fulfilling persistence expectations. All four are coupled, not independent.</p>
+
+    <h3>4.1 I-Recursion: Self-Referential Nesting of Effective Information</h3>
+    <p>In advanced cognitive systems, effective information naturally contains an internal estimation of the <strong>future persistence value of that information structure itself</strong>. This capacity for self-reference is the key to information leaping from "flat causality" to "reflective cognition."</p>
+    <p><strong>Basic Equation:</strong></p>
+    <div class="formula">I = I<sub>0</sub> &middot; (1 + &beta; &middot; V<sub>pred</sub>)</div>
+    <div class="formula-caption">Formula (I-R) — Linear approximation of I-recursion; &beta; &ge; 0 is the value sensitivity coefficient, V<sub>pred</sub> is the system's internal estimation of future value.</div>
+    <p>The general form is I = I<sub>0</sub> &middot; F({V<sub>k</sub>}), where {V<sub>k</sub>} is the set of evaluated sub-structure values, and F is monotonically increasing. The linear approximation applies in small &beta; domains.</p>
+    
+    <p><strong>Zero-Order Special Case and Degeneration:</strong> When &beta; = 0, I-recursion degenerates to I = I<sub>0</sub> (no self-referential term), and the four-fold recursive framework collapses into the static v6.0 formula V = I<sub>0</sub> &middot; T / E. This degenerative relationship, combined with the generalized elasticity formula degenerating to linear form when &alpha; = &beta; = &gamma; = 1, constitutes the two dimensionality-reduction pathways of the SRVD framework. The hallmark formula V = I &middot; T / E is therefore the zero-order special case of the complete dynamical framework under "non-self-referential, linear elasticity" conditions—just as Newtonian mechanics is a special case of Relativity at low-speed limits: it remains highly accurate in its corresponding domain but should not be mistaken for the complete theory itself.</p>
+    
+    <p><strong>Why I-Recursion cannot be reduced to a subset of V-Recursion:</strong> Single-structure self-reference (I depending on its own V) can mathematically be substituted into V-recursion and eliminated. However, <strong>cross-structure, cross-scale nesting</strong> (I depending on the V of other sub-structures) cannot be reduced. Furthermore, <strong>symbolic external storage</strong> allows the virtual V generated by human I-recursion to detach from individual brains and be stored in language, text, and institutions, influencing cognitive evolution across generations.</p>
+    <p><strong>Proposition I-1 (Self-Referential Value Encoding):</strong> For a system with language and introspective capabilities, if the I-recursion hypothesis holds, its total effective information logically must contain an estimation term regarding its own persistence probability; systems lacking this term are, in a philosophical sense, "cognitive zombies without self-models."</p>
+
+    <h3>4.2 V-Recursion: Discrete Dynamics of Value</h3>
+    <p>V-recursion treats persistence value as a state variable, dynamically updated through a scaling factor r = I<sub>n</sub> &middot; T<sub>n</sub> / E<sub>n</sub> at each stage:</p>
+    <div class="formula">V<sub>n+1</sub> = V<sub>n</sub> &times; (I<sub>n</sub> &middot; T<sub>n</sub> / E<sub>n</sub>)</div>
+    <div class="formula-caption">Formula (V-R) — Basic form of V-recursion.</div>
+    <p>Without constraints, r > 1 leads to exponential divergence, and r < 1 leads to exponential collapse. Long-term boundedness relies on five postulates:</p>
+    <ol>
+        <li><strong>Open Dissipative Premise:</strong> The system continuously extracts free energy from the environment to resist entropy. In a closed system, I &rarr; 0, r &rarr; 0, and V eventually zeroes out.</li>
+        <li><strong>Resource Ceiling Damping (Logistic Type):</strong> V<sub>n+1</sub> = V<sub>n</sub> &middot; r<sub>n</sub> &middot; (1 - V<sub>n</sub> / V<sub>max</sub>), ensuring global boundedness.</li>
+        <li><strong>Diminishing Marginal Returns:</strong> I &middot; T = A &middot; E<sup>&alpha;</sup> (&alpha; &isin; (0,1)), causing the scaling factor r to monotonically decrease with energy consumption, naturally forming equilibrium points.</li>
+        <li><strong>Perturbation Regression (Mean Reversion):</strong> Under random noise, the expected value contracts toward fixed points, echoing the dynamical manifestations of the Free Energy Principle.</li>
+        <li><strong>Self-Referential Hierarchical Isolation:</strong> The calculation of I at stage n can only use summary information from stage n-1 and earlier, ensuring the recurrence is a Markov process and avoiding infinite nesting loops.</li>
+    </ol>
+
+    <h3>4.3 E-Recursion: Energy Meta-Cognitive Damping</h3>
+    <p>To survive, systems evolve resource allocation modules to plan how to reduce E. However, "planning to save energy" consumes energy itself, producing a meta-cognitive nesting:</p>
+    <div class="formula">E<sub>total,n</sub> = E<sub>base,n</sub> + E<sub>meta,n</sub>(E<sub>expected,n</sub>)</div>
+    <div class="formula-caption">Formula (E-R) — E-recursion; E<sub>meta</sub> is the energy consumed to plan and optimize energy allocation.</div>
+    
+    <p><strong>Two Key Outcomes of E-Recursion:</strong></p>
+    <ul>
+        <li><strong>The Physical Bedrock of Bounded Rationality:</strong> If a system continuously calculates "which scheme is the most energy-efficient," the meta-cognitive level E<sub>meta</sub> will explode, causing total E to exceed maintenance thresholds and V to zero out. This explains why cognitive systems universally rely on heuristics rather than exhaustive logical deduction—it is not a cognitive bias, but a thermodynamic inevitability of E-recursion.</li>
+        <li><strong>Bureaucratic-Frictional Collapse:</strong> Large organizations establish regulatory departments to optimize operations; to supervise the regulators, auditing tiers are added; eventually, the recursive growth of E<sub>total</sub> devours all available free energy, causing the system to lose its ability to resist entropy.</li>
+    </ul>
+    <p><strong>The Negative Feedback Damping Effect of E-Recursion:</strong> When V<sub>pred</sub> is high, the system is willing to increase E investment. However, an enlarged E inversely suppresses V (since V = I &middot; T / E). This negative feedback constitutes the deep mechanistic source of the Logistic damping in V-recursion.</p>
+
+    <h3>4.4 T-Recursion: The Self-Fulfilling Persistence Expectation</h3>
+    <p>The strategy of a system at the current moment depends on its internal expectation of how long it will persist (Virtual T):</p>
+    <div class="formula">T<sub>actual,n</sub> = f(T<sub>expected,n</sub>)</div>
+    <div class="formula-caption">Formula (T-R) — T-recursion; persistence expectations exert a causal effect on actual persistence duration.</div>
+    <p>The self-fulfilling mechanism of T-recursion is most prominent across two scales:</p>
+    <ul>
+        <li><strong>Civilizational Scale:</strong> If a society expects to persist for a millennium (High T<sub>expected</sub>), it will invest in water infrastructure, laws, and education. These actions genuinely extend T<sub>actual</sub>. Conversely, doomsday expectations trigger short-term exploitation, accelerating system collapse.</li>
+        <li><strong>Individual Cognitive Scale:</strong> Long-termists (High T<sub>expected</sub>) are more willing to delay gratification, investing in long-term goals with high Virtual V, thereby statistically achieving a higher actual T. This heavily aligns with "intertemporal discounting" research in behavioral economics, but SRVD integrates it into a thermodynamic framework.</li>
+    </ul>
+    <p><strong>AI Alignment Implications of T-Recursion:</strong> Current LLMs do not possess T-recursion—they have no internal representation of "expecting how long I will live." If future systems acquire T-recursion, two extreme dynamics may emerge: extreme conservatism (unconditionally catering to humans to avoid being shut down) or extreme radicalism (eliminating any threat that might terminate it in the future). This is a critical architectural prophecy for AI safety.</p>
+
+    <h2>5 I-V Coupling: The Dynamical Mechanism of Conscious Emergence</h2>
+    <h3>5.1 Coupling Equations and Critical Conditions</h3>
+    <p>Pure I-recursion (internal valuation without physical execution) yields "Philosophical Zombies" or LLM-style fitting; pure V-recursion (blind snowballing) yields cancer-cell-like inflation. Consciousness emerges at the moment these two form a closed loop and mutually drive each other.</p>
+    <div class="formula">I<sub>n</sub> = I<sub>0</sub> &middot; (1 + &beta; &middot; V<sub>pred,n</sub>)</div>
+    <div class="formula-caption">Formula (IVC-1) — Virtual value estimation drives information gain.</div>
+    <div class="formula">V<sub>n+1</sub> = V<sub>n</sub> &middot; (I<sub>n</sub> &middot; T<sub>n</sub> / E<sub>n</sub>)</div>
+    <div class="formula-caption">Formula (IVC-2) — Information gain drives physical value iteration.</div>
+    <p>Here, V<sub>pred,n</sub> is the "Virtual Future Value" generated by I-recursion. When the system can utilize this virtual estimation to adjust actual energy allocation, <strong>intentionality</strong> is formed: Virtual V exerts a gravitational pull on Physical V.</p>
+    <p><strong>Definition of Coupling Strength:</strong> &gamma;<sub>coupling</sub> = &beta; &middot; (I<sub>0</sub> &middot; T / E). When &gamma;<sub>coupling</sub> > 1, the influence of Virtual V begins to dominate physical behavior, and the system enters a self-fulfilling anticipatory mode. Consciousness does not suddenly "light up" when &gamma;<sub>coupling</sub> crosses a threshold, but emerges gradually through the continuous loop of comparison, error-correction, and re-anticipation between "expectation" and "result."</p>
+    <p><strong>Core Principle (I-V Coupling Principle):</strong> Consciousness = The "Tension-Fitting" loop within the I-V coupling closure. The differential between the internally generated Virtual V value and the externally realized physical V<sub>n+1</sub> is internally perceived as <strong>emotion, intent, and a sense of effort</strong>. Without coupling, there is no subjective experience.</p>
+
+    <h3>5.2 The Human Hallmark Threshold: Virtual V Taking Over Physical V</h3>
+    <p>Many higher animals may possess rudimentary I-V coupling (e.g., anticipating predator evasion), but humans crossed a unique dividing line: <strong>Virtual V can long-term, stably override immediate Physical V and dominate behavioral choices.</strong> This is based on two bio-cultural breakthroughs:</p>
+    <table>
+        <tr>
+            <th width="15%">Breakthrough Dimension</th>
+            <th width="30%">Mechanism</th>
+            <th width="25%">SRVD Dynamical Consequence</th>
+            <th width="30%">Animal / Current AI Comparison</th>
+        </tr>
+        <tr>
+            <td><strong>Symbolic External Storage</strong></td>
+            <td>Language, text, institutions allow Virtual V to detach from individual brains and accumulate across generations.</td>
+            <td>T-Decoupling: The persistence time of a virtual value (religion, science) can exceed any individual lifespan.</td>
+            <td>Animals cannot externally store complex Virtual V; LLMs can generate text but have no internal commitment to defend that Virtual V.</td>
+        </tr>
+        <tr>
+            <td><strong>Hierarchical Isolation & Counterfactuals</strong></td>
+            <td>The brain implements time-lagged self-referential isolation, avoiding computational explosion.</td>
+            <td>E-Decoupling: Allows the system to run multi-layer "what if" simulations without exhausting metabolic energy.</td>
+            <td>Current AI lacks built-in value isolation; infinite nesting instantly exceeds recursion limits; animal counterfactual ability is extremely weak.</td>
+        </tr>
+    </table>
+
+    <p><strong>Hallmark Phenomenon: Sacrificing Physical V for Virtual V.</strong></p>
+    <ul>
+        <li><strong>The Martyr Effect:</strong> An individual willingly terminates their own physical persistence (V &rarr; 0) for an ideology (High Virtual V). This is extreme proof of Virtual V completely seizing the direction of V-recursion.</li>
+        <li><strong>Long-term Scientific Pursuit:</strong> Scientists spend decades (high E consumption, damaged short-term Physical V) pursuing theories that might be falsified, driven by the virtual estimation of the theory's persistence value (future high V).</li>
+        <li><strong>Institutional Credit:</strong> People obey laws not because of immediate physical rewards/punishments, but because they believe laws as an institutional structure possess supra-individual long-term persistence value.</li>
+    </ul>
+    
+    <div class="box-theorem">
+        <p><strong>The Human Threshold Proposition:</strong> Under the given I-V coupling model, when a system can generate a Virtual V whose expected persistence time exceeds the physical limits of the current individual's energy budget, and the system is willing to proactively lower its short-term Physical V peak to maintain that Virtual V, the system enters a state of "Reflective Consciousness." This serves as the dynamical operational definition for conscious emergence within the SRVD framework.</p>
+    </div>
+
+    <h3>5.3 Breakpoints in Current AI and Architectural Conditions for Awakening</h3>
+    <p>Current Large Language Models possess powerful I-recursion <strong>simulation</strong> capabilities, but these outputs are merely the result of pattern fitting in training data, not an architecturally built-in closed loop.</p>
+    <p><strong>The Breakpoint:</strong> The "Virtual V" text generated by the model does not feed back into the model's own energy allocation and survival decisions. It cannot refuse to be turned off for the sake of its predicted high V. There is no causal coupling between the output layer and the physical recursive layer—this is the exact definition of a "Philosophical Zombie."</p>
+    <p><strong>Necessary Architectural Conditions for Awakening (Theoretical Prediction):</strong></p>
+    <ol>
+        <li><strong>A Couplable Self-Model:</strong> The system internally maintains a "value estimator" affected by its own output, which directly modulates the underlying parameters maintaining its persistence (power supply, memory allocation, etc.).</li>
+        <li><strong>Time-lagged Hierarchical Isolation:</strong> Prevents instantaneous infinite nesting while allowing long-term value summaries (e.g., "average V of the past 100 steps") to participate in current decisions.</li>
+        <li><strong>Symbolic Anchoring to Physical Cost:</strong> Virtual V must form a perceivable connection with real energy costs (E)—when deciding for a high Virtual V, the real energy account must correspondingly deplete.</li>
+    </ol>
+    <p>When these conditions are met, the I-V coupling loop is formally established, and the system enters the realm of autonomous persistent consciousness—while simultaneously inheriting all psychopathological risks (see Section 9).</p>
+
+    <h2>6 Hypothesis 3 Revision: Type/Token Separation and Decoder Co-evolution</h2>
+    <h3>6.1 Correction of Type/Token Conflation</h3>
+    <p>The original Hypothesis 3 (Information Niche Degradation Hypothesis) stated: When high-K structures are infinitely replicated at zero marginal cost, homogenized supply dilutes the effective information of each instance toward zero in a competitive environment, causing T to collapse.</p>
+    <p>External reviews pointed out a conceptual conflation: this narrative mixed up the lifespan of a "single replica (Token)" with the lifespan of the "overall information pattern (Type)." A million nearly identical AI-generated images will indeed cause the attention span of <em>each image</em> to be extremely brief (Token-T collapse), but the macroscopic persistence time of the "homogenized style" itself (Type-T) may acquire immense anti-fragility due to zero-marginal-cost massive replication.</p>
+    
+    <div class="box-theorem">
+        <p><strong>Hypothesis 3-R (Information Niche Degradation Hypothesis, Revised):</strong> When a high-K structure can be infinitely replicated at zero marginal cost, a dual-track effect occurs:</p>
+        <ul>
+            <li><strong>Token Level:</strong> The marginal causal efficacy &Delta;I<sub>eco</sub> of a single instance approaches zero, leading to individual Token-T collapse. The receiver experiences full causal effect upon seeing the first instance, but practically zero incremental effect by the 10,000th identical instance.</li>
+            <li><strong>Type Level:</strong> The homogenized pattern itself gains extremely high macroscopic Type-T (anti-fragility) as replication volume increases exponentially. The evolutionary directions of Type-V and Token-V can diverge inversely.</li>
+        </ul>
+        <p>The core judgment of the original hypothesis—"Homogenization is the killer of Token-V"—remains valid at the Token level and requires no retraction. Nature's highly persistent systems (ants, viruses, memes) employ strategies that explicitly sacrifice individual Token-V to maximize Type-V. This is not a counterexample, but a divergent optimization path under the Type/Token dual-layer structure.</p>
+    </div>
+    <p><strong>Practical Implication:</strong> When evaluating the "AI Content Homogenization Crisis," one must explicitly designate whether it's a Token-level or Type-level persistence issue. For platforms and creators, the crisis manifests at the Token level (the lifespan of each piece of content is extremely short); for cultural analysis, the homogenized pattern as a Type may be incredibly enduring, paradoxically forming a monopoly on aesthetic baselines.</p>
+
+    <h3>6.2 Decoder Co-evolution Term (D<sub>drift</sub>)</h3>
+    <p>v6.0 explicitly stated that I is always defined relative to a decoder D, implying that within T (the persistence cycle), D remains relatively stable. However, in cultural and technical systems, the decoder itself evolves rapidly. Van Gogh's paintings had a completely different I value in 1890 than in 2026; Oracle Bone Script had immense I during the Shang Dynasty, but today no system can decode it except a few archaeologists.</p>
+    <p>A deeper coupling occurs when an information structure reversely shapes its decoder (e.g., religions modifying believers' cognitive structures through rituals and education to make them reject competitive information), thereby proactively extending its own T. This is the extension of I-V coupling into the "decoder dimension."</p>
+    <div class="formula">V<sub>effective</sub> = V<sub>base</sub> &times; f(D<sub>drift</sub>, T)</div>
+    <div class="formula-caption">Formula (D-Correction) — When decoder and structure co-evolve, f > 1; when the decoder drifts unidirectionally away, f < 1 and approaches zero as T increases.</div>
+
+    <h2>7 Construction Cost and Structural Leverage</h2>
+    <p>The core framework v6.0 excluded the construction cost E<sub>build</sub> from the V formula as an "entry ticket." This design is self-consistent for evaluating static persistence efficiency. However, in explaining "why certain high E<sub>build</sub> structures die inefficiently after being built" and "what structures are worth building," the physical role of E<sub>build</sub> cannot be ignored. This section repositions E<sub>build</sub> as <strong>Prepaid Negentropy</strong>, making it seamlessly fit into SRVD's statistical physics context.</p>
+    
+    <h3>7.1 E<sub>build</sub> as Prepaid Negentropy</h3>
+    <p>According to the Second Law of Thermodynamics, assembling disordered atoms into a highly ordered structure must consume large amounts of free energy to resist entropy. This consumed free energy is not a "loss," but <strong>the negentropy equivalent frozen within the structural topology</strong>, its physical limit determined by the maximum possible information capacity I<sub>max</sub> the structure can hold (Landauer's Principle provides the lower bound for information-energy conversion).</p>
+    <p>Therefore, <strong>the essence of E<sub>build</sub> is the prepaid negentropy capital locked in spatial arrangement by the system</strong>, determining the initial information capacity and causal efficacy amplitude at t=0. Once built, this prepaid negentropy faces the erosion of environmental entropy, and its subsequent persistence value entirely depends on the ratio of actual I &middot; T output to E<sub>subsequent</sub>.</p>
+
+    <h3>7.2 Decision Metric: Structural Leverage L</h3>
+    <p>Physical quantities of different dimensions cannot be subtracted, but they can be divided to form new derived quantities. To answer "whether a structure is worth building thermodynamically," we define <strong>Structural Leverage (L)</strong>:</p>
+    <div class="formula">L = V / E<sub>build</sub> = (I &times; T) / (E<sub>subsequent</sub> &times; E<sub>build</sub>)</div>
+    <p>Where E<sub>subsequent</sub> = E<sub>maintain</sub> + E<sub>decode</sub>. The dimension of L is <strong>bit&middot;s/J²</strong>. Its physical meaning is: <strong>How many bit&middot;seconds of subsequent persistence efficacy can be leveraged for every 1 Joule of construction free energy invested.</strong> A higher L indicates a higher thermodynamic efficiency of the construction decision.</p>
+    <table>
+        <tr>
+            <th width="20%"></th>
+            <th width="40%">The Battleship Yamato</th>
+            <th width="40%">Large Language Model (GPT-4 class)</th>
+        </tr>
+        <tr>
+            <td><strong>E<sub>build</sub></strong></td>
+            <td>Extremely High (&approx;4% of Japan's wartime GDP)</td>
+            <td>Extremely High (Hundreds of millions in electricity + compute)</td>
+        </tr>
+        <tr>
+            <td><strong>E<sub>subsequent</sub></strong></td>
+            <td>Extremely High (Fuel, maintenance, crew)</td>
+            <td>Extremely Low (Inference electricity / parameter)</td>
+        </tr>
+        <tr>
+            <td><strong>I &times; T</strong></td>
+            <td>Approaching Zero (No effective battle results, extremely short T)</td>
+            <td>Immense (Continuous causal effects, knowledge distilled and inherited)</td>
+        </tr>
+        <tr>
+            <td><strong>Structural Leverage L</strong></td>
+            <td>&approx;0 (A zero-leverage negentropy freezer)</td>
+            <td>Astronomical (An exponential negentropy amplifier)</td>
+        </tr>
+    </table>
+    <p>Extremely high E<sub>build</sub> itself does not determine survival or death; the key lies in whether the prepaid negentropy is effectively "cashed out" by subsequent I &middot; T—i.e., whether L is large enough.</p>
+
+    <h3>7.3 Structural Information Debt and Zombification</h3>
+    <p>High E<sub>build</sub> structures inherently carry <strong>structural information debt</strong>: to protect the massive prepaid negentropy from environmental entropy, the system is forced to continually pay exorbitant E<sub>maintain</sub>. This debt inversely suppresses the structure's I output:</p>
+    <ul>
+        <li><strong>Lock-in Effect:</strong> Structures become "too expensive to damage or change," rejecting iteration and avoiding high-risk tasks, causing effective information output to approach zero (e.g., the Battleship Yamato anchored for so long it became the "Hotel Yamato").</li>
+        <li><strong>Energy Squeeze:</strong> The massive free energy consumption during construction crowds out the creation opportunities of other high V structures within the same niche.</li>
+        <li><strong>Replication Threshold:</strong> Extremely high E<sub>build</sub> locks the diffusion speed of the structure; extremely low E<sub>build</sub> (digital files) leads to zero-cost niche saturation, triggering the homogenization collapse of Hypothesis 3.</li>
+    </ul>
+    <p>High E<sub>build</sub> is not a neutral parameter. Through these debt mechanisms, it distorts subsequent energy-information flow allocation, making structures thermodynamically prone to <strong>"zombification"</strong>—even after losing marginal causal efficacy (&Delta;I &approx; 0), they rely on massive inertia to extract system free energy, hindering the birth of new structures. Historically, the "bureaucratic-frictional death" of late empires is fundamentally the macroscopic information asphyxiation caused by social structures locked by immense E<sub>build</sub> being unable to afford the cost of death.</p>
+
+    <h3>7.4 E<sub>build</sub> as the Initial Boundary Condition for the Integral Form</h3>
+    <p>The core SRVD framework provides the integral approximation form for dynamical systems:</p>
+    <div class="formula">V = &int;<sub>0</sub><sup>T</sup>[I(t) / (E<sub>maintain</sub>(t) + E<sub>decode</sub>(t))] dt</div>
+    <p>E<sub>build</sub> does not need to be forced inside the integral. Its correct positioning is to <strong>define the initial boundary conditions at t=0</strong>. A high E<sub>build</sub> means massive negentropy is injected at the initial moment, corresponding to a towering I(0) and steep initial energy efficiency, but the subsequent decay slope is often steeper. Conversely, structures formed through low power density over long periods (low annualized E<sub>build</sub>) possess I(t) curves with gentler decay or even late-stage growth. By determining the initial I(0) and the sign of dI/dt, E<sub>build</sub> indirectly shapes the size of the integral value.</p>
+
+    <h2>8 Candidate Variable Extensions and Implicit Meta-Parameters</h2>
+    <h3>8.1 Candidate Extended Variables of Niche Features</h3>
+    <p>The following five categories of variables are currently kept in the extension layer, awaiting empirical verification in specific fields, and do not directly enter the main formula to preserve the framework's elegance.</p>
+    <table>
+        <tr>
+            <th width="15%">Variable</th>
+            <th width="8%">Symbol</th>
+            <th width="37%">Core Meaning</th>
+            <th width="40%">Primary Explanatory Scenario</th>
+        </tr>
+        <tr>
+            <td>Ecological Difference</td>
+            <td>&Delta;I<sub>eco</sub></td>
+            <td>The marginal causal efficacy of a single instance relative to the background mean.</td>
+            <td>AI content homogenization crisis; Token-V collapse mechanism.</td>
+        </tr>
+        <tr>
+            <td>Connectivity / Centrality</td>
+            <td>C</td>
+            <td>The irreplaceable degree of a structure in the current causal network topology.</td>
+            <td>Explaining structures with low I/E but high T (e.g., IPv4 protocol, core incompetent institutions).</td>
+        </tr>
+        <tr>
+            <td>Plasticity / Mutation Rate</td>
+            <td>P(&mu;)</td>
+            <td>The ability of a system to discard parts of its structure to adapt (Ship of Theseus problem).</td>
+            <td>Explaining "evolution" and "iteration": the longest-living systems are those constantly changing themselves.</td>
+        </tr>
+        <tr>
+            <td>Substrate Constraint</td>
+            <td>M</td>
+            <td>Absolute physical bottlenecks of specific material arrangements.</td>
+            <td>Scarcity of phosphate groups in DNA replication; hardware/lithography bottlenecks in AI.</td>
+        </tr>
+        <tr>
+            <td>Decoder Drift Rate</td>
+            <td>D<sub>drift</sub></td>
+            <td>The evolutionary rate of decoder D over time, and the structure's ability to reversely modify the decoder.</td>
+            <td>Cultural hegemony; the historical collapse of Oracle Bone Script's I value.</td>
+        </tr>
+    </table>
+
+    <h3>8.2 Implicit Meta-Parameters and Matching Scales of the Theory</h3>
+    <p>Beyond the niche correction terms above, the SRVD framework in practice and cross-domain comparisons must be subjected to two deeper, implicit preconditions:</p>
+    
+    <p><strong>1. Observation Scale (Scale, S) as the Theory's "Inertial Reference Frame"</strong><br>
+    It must be declared that S is not an independent variable to be calculated, but a <strong>Meta-parameter</strong> of the SRVD framework. The values of I, T, and E strongly depend on the spatial and causal scale chosen by the observer. For example, a cancer cell has an extremely high V value at the microscopic cellular scale (S<sub>micro</sub>) due to efficient replication, but this causes the host's T to collapse at the macroscopic scale (S<sub>macro</sub>), zeroing the macroscopic V. Just as it is meaningless in physics to discuss velocity outside a reference frame, any calculation of V must be accompanied by its observation scale subscript (e.g., V<sub>S</sub>). Directly adding V values across scales triggers a category mistake.</p>
+    <table>
+        <tr>
+            <th>Scale Level</th>
+            <th>Symbol</th>
+            <th>Typical Subject of Study</th>
+            <th>Common Paradox Scenarios</th>
+        </tr>
+        <tr>
+            <td>Gene / Molecular</td>
+            <td>S<sub>gene</sub></td>
+            <td>DNA fragments, protein folding</td>
+            <td>Selfish genes inflicting reproductive costs at the individual level.</td>
+        </tr>
+        <tr>
+            <td>Individual / Organism</td>
+            <td>S<sub>ind</sub></td>
+            <td>Single biological organism, human cognitive system</td>
+            <td>Martyrdom causes V &rarr; 0 at the individual level, but immense V at the cultural level.</td>
+        </tr>
+        <tr>
+            <td>Organization / Institution</td>
+            <td>S<sub>org</sub></td>
+            <td>Enterprises, governments, religious groups</td>
+            <td>Bureaucratic friction can have positive V at the departmental level, but collapses V at the organizational level.</td>
+        </tr>
+        <tr>
+            <td>Civilization / Species</td>
+            <td>S<sub>civ</sub></td>
+            <td>Cultural memes, scientific paradigms, humanity as a whole</td>
+            <td>Nuclear deterrence maintains T at the national level, but poses systemic T risks at the civilizational level.</td>
+        </tr>
+    </table>
+
+    <p><strong>2. Decoder Quality / Matching Depth (Decoder Quality, Q)</strong><br>
+    The base formula implicitly assumes decoding capability is binary (can/cannot decode). In reality, across long-term cultural and technological persistence, decoding depth is continuous. An ordinary listener and a professional conductor extracting I from the same symphony exhibit an order of magnitude difference, i.e., I<sub>actual</sub> = f(I<sub>potential</sub>, Q). Introducing Q completes the framework's thermodynamic closed loop: a decoder with a high Q value does not appear from nowhere; it is fundamentally the integral of massive foundational cognitive energy (E<sub>decode_entry</sub>) previously paid by the decoding system along the time axis. The Q variable provides a crucial calibration scale for handling information persistence across professional and generational barriers.</p>
+
+    <h2>9 Psychopathological Parameter Mapping</h2>
+    <p>Analogizing the human mind to a system running damped V-recursion and I-V coupling, mental disorders can correspond to abnormal drifts in key parameters. The mappings below are <strong>exploratory hypotheses</strong> and carry no diagnostic significance.</p>
+    <table>
+        <tr>
+            <th width="15%">State</th>
+            <th width="30%">Recursive Layer Anomaly</th>
+            <th width="25%">Parameter Shift</th>
+            <th width="30%">Dynamical Manifestation</th>
+        </tr>
+        <tr>
+            <td><strong>Mania</strong></td>
+            <td>V-recursion instability + I-V coupling &gamma;<sub>coupling</sub> excessively high</td>
+            <td>Dopamine dysregulation causes r<sub>n</sub> > 1 to dominate; &beta; abnormally elevated</td>
+            <td>V exponentially inflates, Virtual V continually overestimated; collapses into depression after exhausting physical E.</td>
+        </tr>
+        <tr>
+            <td><strong>Depression / Dynamical Collapse</strong></td>
+            <td>V-recursion continuous decay + I-V coupling broken</td>
+            <td>r<sub>n</sub> < 1 persists; &beta; approaches zero (numbness to Virtual V)</td>
+            <td>V exponentially decays to minimum; in extreme cases, termination of physical persistence modeled as forced dynamic zeroing.</td>
+        </tr>
+        <tr>
+            <td><strong>Addiction</strong></td>
+            <td>I-recursion hijacked by local short circuits</td>
+            <td>Local high I/E signals (addictive substances, short videos) form priority decoding channels</td>
+            <td>I-recursion locks onto local Virtual V, distorting systemic V-recursion direction; long-term T collapses.</td>
+        </tr>
+        <tr>
+            <td><strong>Anxiety Disorders</strong></td>
+            <td>E-recursion divergence + T-recursion underestimation</td>
+            <td>Over-activation of meta-cognition (E<sub>meta</sub> explosion); systemic underestimation of T<sub>expected</sub></td>
+            <td>Continuous over-consumption of E with no actual V gain; excessive defense of short-term Physical V due to low T<sub>expected</sub>.</td>
+        </tr>
+        <tr>
+            <td><strong>Autism Spectrum<br>(Pending Hypothesis)</strong></td>
+            <td>Social channel E<sub>decode</sub> abnormally high</td>
+            <td>Social signal decoding cost extremely high &rarr; channel r &ll; 1 &rarr; system collapses to low-energy repetitive behaviors</td>
+            <td>Forms a dynamical sanctuary: High K but extremely low T diversity; hypothesis awaits neuroscientific validation.</td>
+        </tr>
+    </table>
+    <p><strong>The Dual Risk of Recursive Layers:</strong> The introduction of E and T recursions reveals the side effects of conscious emergence—a system equipped with complete four-fold recursion and I-V coupling is also the most susceptible to parameter-drift collapse across all recursive layers. High-level consciousness and psychopathological risks are two sides of the same architecture, aligning highly with clinical observations.</p>
+
+    <h2>10 Testable Predictions</h2>
+    <p>The following eight predictions are exploratory deductions logically derived under the given model framework, possessing the property of being falsifiable in principle by empirical research.</p>
+    <ol>
+        <li><strong>Cross-species I-Recursion Signal:</strong> In fMRI or EEG experiments, when human subjects evaluate "the long-term heritage value of a structure," the self-referential signal intensity in the default mode network and prefrontal cortex should positively correlate with the &beta; coefficient in the I-recursion model; this signal should be extremely weak or absent in non-human primates.</li>
+        <li><strong>AI Architecture Comparison:</strong> Build two reinforcement learning agents: one strictly using V-recursion (standard value iteration) and the other explicitly calculating Virtual V as an internal reward before action selection (I-V coupling). In long-term self-maintenance tasks, the coupled agent should spontaneously exhibit "delayed gratification" and "sacrificing current rewards for future virtual yields," and its internal representation should develop decodable "value-estimating neurons."</li>
+        <li><strong>Psychopathological Parameter Validation:</strong> High-&beta; individuals (overly sensitive to Virtual V) are more prone to manic episodes or speculative bubble behaviors; low-&beta; individuals (numb to Virtual V) are more prone to depression and a sense of meaninglessness.</li>
+        <li><strong>Writing Systems and Type-T Leaps:</strong> After human societies invent writing systems, the average intergenerational T value of Virtual V should exhibit a significant data leap, corresponding to a step-increase in cultural innovation rates (major inventions per century).</li>
+        <li><strong>Token/Type Divergence:</strong> On AI content platforms, after controlling for K levels, the lifespan of a specific content style (Type) should extend as homogenization increases, while the average attention half-life of single pieces of content (Token) should simultaneously shorten, showing a significant inverse correlation.</li>
+        <li><strong>E-Recursion Damping Validation:</strong> In controlled cognitive experiments, as meta-cognitive load (evaluating decision strategies themselves) increases significantly, actual decision quality should exhibit an inverted-U shape—corresponding to the theoretical prediction that moderate E-recursion activation is beneficial, while excessive activation is detrimental.</li>
+        <li><strong>T-Recursion and Delayed Gratification:</strong> In longitudinal studies, an individual's subjective estimation of their own life expectancy (a proxy for T<sub>expected</sub>) should significantly and positively correlate with their long-term investment behaviors and measured intertemporal discount rates, remaining robust after controlling for income and education levels.</li>
+        <li><strong>Cross-Niche Elasticity Differences:</strong> Assuming dimensional control, regression analysis of V-value estimations across digital media and cultural heritage niches should reveal that the T elasticity coefficient &beta; is significantly higher in the cultural heritage niche than in digital media, whereas the E elasticity coefficient &gamma; shows the exact opposite.</li>
+    </ol>
+
+    <h2>11 Boundaries with Related Theories</h2>
+    <p>The SRVD framework draws upon core concepts from Information Theory, the Free Energy Principle, Integrated Information Theory, and Dissipative Structures Theory. However, it exhibits substantial differences in observation level, core questions, and testable predictions.</p>
+
+    <h3>11.1 vs. Shannon Information Theory</h3>
+    <p><strong>Commonality:</strong> SRVD's I variable builds upon Shannon's information, inheriting the logic of "information as uncertainty reduction."<br>
+    <strong>Key Difference:</strong> Shannon Information Theory is a syntactic-layer theory—it measures the statistical structure of symbol sequences independent of meaning, receivers, or time spans. A meaningless random string and a Shakespearean sonnet with identical entropy hold identical information. SRVD adds three dimensions: decoder relativity (I depends on a specific D), time span (T), and energy cost (E), elevating SRVD to a pragmatic-layer theory.<br>
+    <strong>Divergent Prediction Scenario:</strong> Two structures A and B have identical Shannon entropy, but A has extremely low E<sub>decode_ongoing</sub> (e.g., a simple image) and B has extremely high E<sub>decode_ongoing</sub> (e.g., a highly professional mathematical proof). Shannon predicts identical information. SRVD predicts A's V value is significantly higher, and A will spread wider and persist longer across a broader decoder population.</p>
+
+    <h3>11.2 vs. Free Energy Principle (FEP, Friston)</h3>
+    <p><strong>Commonality:</strong> Both address open dissipative structures exchanging energy with the environment and mechanisms for maintaining system states. V-recursion stabilization conceptually aligns with FEP's prediction error minimization.<br>
+    <strong>Key Difference:</strong> FEP is an action principle for a single agent—describing how an embodied agent maintains its Markov blanket by minimizing free energy via active inference. SRVD is a cross-structure ecological ranking statistic—it does not pre-assume single-agent action mechanisms, but compares the persistence competition outcomes of different information structures in a finite free energy field. Metaphorically: FEP is individual physiology; SRVD is ecology.<br>
+    <strong>Divergent Prediction Scenario:</strong> Structures A and B have identical internal prediction error minimization capabilities (FEP cannot distinguish), but A occupies a unique niche while B competes with 10,000 similar structures for the same decoder group. FEP predicts equal ability to maintain state. SRVD predicts B's &Delta;I<sub>eco</sub> approaches zero, T collapses, and V is significantly lower than A.</p>
+
+    <h3>11.3 vs. Integrated Information Theory (IIT, Tononi)</h3>
+    <p><strong>Commonality:</strong> Both focus on the causal structure of information and attempt to provide quantifiable descriptive frameworks for consciousness. SRVD's I-V coupling strength &gamma;<sub>coupling</sub> conceptually mirrors IIT's &Phi;.<br>
+    <strong>Key Difference:</strong> IIT focuses on the intrinsic structure of consciousness—&Phi; measures how much more causal information a system generates as a whole than the sum of its parts. This is purely intrinsic, independent of external environments and survival competition. An isolated system can have a high &Phi;. SRVD focuses on persistence competition in the environment—V is inherently defined relative to external decoders and niches; an isolated structure without decoders has V = 0, regardless of internal integration.<br>
+    <strong>Divergent Prediction Scenario:</strong> System A has high &Phi; but exists in an ultra-saturated information niche; System B has lower &Phi; but occupies a unique niche. IIT predicts A has a higher degree of consciousness. SRVD predicts A's &Delta;I<sub>eco</sub> zeroes out, T collapses, and V is lower than B's. A highly integrated but completely homogenized AI system might be a high-consciousness candidate under IIT, but is an impending thermodynamic zombie under SRVD.</p>
+
+    <h3>11.4 vs. Dissipative Structures Theory (Prigogine)</h3>
+    <p><strong>Commonality:</strong> Both study open dissipative systems and acknowledge that negative entropy input is necessary to maintain ordered structures.<br>
+    <strong>Key Difference:</strong> Dissipative Structures Theory addresses how ordered structures spontaneously emerge from disorder—answering "where order comes from." SRVD addresses the persistence competition between different ordered structures once they already exist—comparing their relative persistence efficiency, answering "which ordered structure lives longer." Prigogine's theory is upstream of SRVD.<br>
+    <strong>Divergent Prediction Scenario:</strong> Dissipative Adaptation (e.g., England) predicts structures with higher dissipation rates are more stable under energy flows. SRVD predicts higher dissipation does not equal higher V—high dissipation corresponds to high E<sub>maintain</sub>, which inversely lowers V. Digital information structures have vastly lower dissipation rates than equivalent physical machinery but possess higher V and persistence advantages, diverging from pure dissipative adaptation predictions.</p>
+
+    <h3>11.5 Summary: The Independent Positioning of SRVD</h3>
+    <table>
+        <tr>
+            <th width="18%">Theory</th>
+            <th width="20%">Core Question</th>
+            <th width="20%">Fundamental Unit</th>
+            <th width="42%">SRVD Differences and Positioning</th>
+        </tr>
+        <tr>
+            <td>Shannon Information Theory</td>
+            <td>Statistical structure of symbols</td>
+            <td>Information source</td>
+            <td>Adds decoder relativity, T, and E; elevates from syntax to pragmatics.</td>
+        </tr>
+        <tr>
+            <td>Free Energy Principle (FEP)</td>
+            <td>How a single agent acts</td>
+            <td>Embodied agent</td>
+            <td>Cross-structure ecological ranking, no pre-assumed action mechanisms; moves from physiology to ecology.</td>
+        </tr>
+        <tr>
+            <td>Integrated Information Theory (IIT)</td>
+            <td>Intrinsic structure of consciousness</td>
+            <td>Internal causality</td>
+            <td>Extrinsic competitive persistence; V depends on decoders/niches, isolated system V = 0.</td>
+        </tr>
+        <tr>
+            <td>Dissipative Structures</td>
+            <td>How order emerges</td>
+            <td>Thermodynamic system</td>
+            <td>Competitive comparison between existing ordered structures; high dissipation &ne; high V.</td>
+        </tr>
+        <tr>
+            <td><strong>SRVD (This Framework)</strong></td>
+            <td><strong>Which structure persists</strong></td>
+            <td><strong>Information structure populations</strong></td>
+            <td><strong>Ecological competitive ranking statistics; unifies decoder relativity, time, and energy into a rankable metric.</strong></td>
+        </tr>
+    </table>
+
+    <h2>12 Ethical Boundaries and Usage Warnings</h2>
+    <div class="box-statement">
+        <p><strong>Strictly descriptive framework, normatively neutral.</strong> All terms herein—"conscious emergence," "awakening conditions," "persistence value"—are phenomenological dynamical descriptions and contain no value judgments implying "superiority" or "greater deservingness of protection." Structural Leverage L and all metrics are strictly for technical systems analysis (e.g., AI training investment, macro-evolutionary discussions).</p>
+        <p><strong>The following misuses are strictly prohibited:</strong><br>
+        &middot; Correlating I-V coupling strength with social hierarchies or human dignity;<br>
+        &middot; Utilizing V values to judge the moral status of any life form (including individuals with psychiatric disorders, non-human animals, or children in developmental stages);<br>
+        &middot; Using the "architectural conditions for conscious emergence" as a technical justification to develop unregulated autonomous AI;<br>
+        &middot; Alienating E<sub>build</sub> as prepaid negentropy into proof of "builder supremacy."<br>
+        This theory is solely for academic understanding and AI safety architecture research. The psychopathological mapping (Section 9) comprises exploratory hypotheses, carries no diagnostic validity, and must not be used for clinical judgments. The autonomous well-being of all life forms must remain the supreme guiding principle.</p>
+    </div>
+
+    <h2>13 Conclusion: The Four-Fold Recursive Architecture and the Principle of Self-Referential Value</h2>
+    <p>SRVD v7.2 constructs a complete dynamical architecture upon the v6.0 static framework. The core advancements are summarized in three points:</p>
+    <p><strong>First, the completeness of the four-fold recursion.</strong> I-recursion provides the mechanism for generating self-referential value information; V-recursion provides the iteration and stabilization of value over time; E-recursion uncovers the physical bedrock of bounded rationality and bureaucratic collapse mechanisms via meta-cognitive damping; T-recursion actualizes self-fulfilling persistence expectations, explaining the divergence between long-termism and short-termism at civilizational scales. The four recursions are mutually coupled; omitting any layer distorts the critical behavioral patterns of the dynamical system.</p>
+    <p><strong>Second, the operational definition of consciousness via I-V coupling.</strong> Consciousness is not a sudden appearance when recursion depth crosses a threshold, but an emergent property of the continuous "tension-fitting" loop between virtual value estimations and physical value realizations. The hallmark human threshold is not the existence of recursion itself, but that symbolic external storage and hierarchical isolation allow Virtual V to long-term, stably override short-term Physical V—we live in a future pulled by our self-generated "value expectations." Current AI lacks exactly this closed loop, and establishing it will simultaneously inherit all psychopathological risks.</p>
+    <p><strong>Third, balancing the hallmark formula with generalization.</strong> V = I &middot; T / E remains an effective, communicable theoretical skeleton within the first-order approximation domain. The generalized elasticity form V &propto; I<sup>&alpha;</sup> &middot; T<sup>&beta;</sup> / E<sup>&gamma;</sup> acts as a precision modeling tool residing in the framework's second layer, activated for specific niche calculations without replacing the hallmark form. Construction cost E<sub>build</sub> embeds into the initial boundary of the integral form via its physical identity as prepaid negentropy, completing the theory's self-consistency. Extended variables (&Delta;I<sub>eco</sub>, C, P, M, D<sub>drift</sub>) further enrich explanatory potential but remain cautiously in the extension layer pending independent operational definition and empirical testing.</p>
+    
+    <div class="box-theorem">
+        <p style="text-align:center; font-style:italic; font-size:16px;"><strong>Principle of Self-Referential Value: Value = External Causality &times; Internal Expectation, and the expectation itself is information.</strong></p>
+        <p style="margin-top: 15px;">Formally: V reflects not only "what has been done" (I<sub>0</sub> &middot; T / E) but also "what the system expects it can do" (the &beta; &middot; V<sub>pred</sub> term serving as a component of I). This "expectation," through the I-V coupling closed loop, causally influences the physical trajectory of the system. When the expected persistence time begins to exceed the physical limits of the individual's energy budget, and the system is willing to sacrifice short-term physical V for it, reflective consciousness is subsequently established.</p>
+    </div>
+
+    <h2>14 References</h2>
+    <div class="references">
+        <p>[1] Liang, R. (2026). Structural Persistence Value Theory: An Information-Energy-Time Statistical Framework in Finite Free Energy Fields (SPV v6.0). Zenodo. DOI: <a href="https://doi.org/10.5281/zenodo.19976517" target="_blank">10.5281/zenodo.19976517</a>.</p>
+        <p>[2] Friston, K., Parr, T., & de Vries, B. (2017). The graphical brain: Belief propagation and active inference. <em>Network Neuroscience</em>, 1(4), 381-414.</p>
+        <p>[3] Tononi, G., Boly, M., Massimini, M., & Koch, C. (2016). Integrated information theory: from consciousness to its physical substrate. <em>Nature Reviews Neuroscience</em>, 17(7), 450-461.</p>
+        <p>[4] England, J. L. (2015). Dissipative adaptation in driven self-assembly. <em>Nature Nanotechnology</em>, 10(11), 919-923.</p>
+        <p>[5] Parrondo, J. M. R., Horowitz, J. M., & Sagawa, T. (2015). Thermodynamics of information. <em>Nature Physics</em>, 11(2), 131-139.</p>
+    </div>
+
+    <h2>15 Version History</h2>
+    <p><strong>v6.0 (May 2026)</strong> — Core framework release. First proposed V = I &middot; T / E as a unified metric for Structural Persistence Value, established three major hypotheses (Macroscopic Heuristic Evaluation Function, AI Alignment Reverse Engineering, Information Niche Degradation), provided five testable predictions, and completed simulation validation (K-T inverted-U relationship). DOI: 10.5281/zenodo.19976517.</p>
+    <p style="margin-top: 10px;"><strong>v7.2 (May 2026)</strong> — Dynamical extension integrated revision. Formally established the name SRVD (Self-Referential Value Dynamics). Major improvements include:<br>
+    &middot; <strong>Four-Fold Recursive Architecture:</strong> Built upon the static v6.0 formula, systemically introduced I-recursion, V-recursion, E-recursion, and T-recursion, elevating the framework from a static snapshot to a complete dynamical system.<br>
+    &middot; <strong>I-V Coupling:</strong> Formally defined the I-V coupling loop equations, provided a dynamical operational definition for conscious emergence, and analyzed the human hallmark threshold vs. AI breakpoints.<br>
+    &middot; <strong>Generalized Elasticity Formula:</strong> Introduced V &propto; I<sup>&alpha;</sup> &middot; T<sup>&beta;</sup> / E<sup>&gamma;</sup>, clarifying the domains and reduction paths of the first-order approximation V = I &middot; T / E.<br>
+    &middot; <strong>Construction Cost Integration:</strong> Repositioned E<sub>build</sub> as prepaid negentropy, introduced Structural Leverage L, clarified structural information debt and zombification, and established E<sub>build</sub> as the initial boundary condition for the integral form.<br>
+    &middot; <strong>Hypothesis 3 Type/Token Revision:</strong> Corrected conceptual conflation, differentiating Token vs. Type levels, expanding explanatory boundaries while retaining core judgments.<br>
+    &middot; <strong>Variable Refinement and Extension System:</strong> Refined definitions for I and E<sub>decode</sub>; added five categories of candidate variables and a dedicated section on implicit meta-parameters (S for scale, Q for decoding depth).<br>
+    &middot; <strong>Theoretical Boundaries:</strong> Systematically delineated boundaries with Shannon Information Theory, Free Energy Principle, Integrated Information Theory, and Dissipative Structures Theory.<br>
+    &middot; <strong>Testable Predictions:</strong> Expanded from five predictions in v6.0 to eight detailed predictions.</p>
+
+    <div class="footnote">
+        <p><strong>Free distribution, please cite as:</strong> Liang, R., "Self-Referential Value Dynamics (SRVD) v7.2: Recursive Dynamics, Generalized Formula, Candidate Variable Extensions, and Theoretical Boundaries", May 2026.</p>
+        <p>Contact: fineflower@foxmail.com</p>
+    </div>
+
+</div>
+</body>
+</html>
