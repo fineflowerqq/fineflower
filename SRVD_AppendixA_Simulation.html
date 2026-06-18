@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRVD Dynamical Demonstration Platform · Appendix A | Structural Recursive Viability Dynamics v7.6</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <style>
+        :root {
+            --bg: #ffffff; --text: #111827; --muted: #6b7280;
+            --border: #e5e7eb; --accent: #2563eb; --danger: #dc2626; --warning: #d97706;
+        }
+        body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; margin: 0; padding: 40px 20px; font-size: 18px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1, h2, h3 { margin-top: 0; }
+        .flex-row { display: flex; gap: 24px; flex-wrap: wrap; }
+        .col-2 { flex: 1 1 45%; min-width: 300px; }
+        .card { border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-bottom: 32px; background: #fafafa; }
+        .control-group { margin-bottom: 20px; }
+        .control-group label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 0.9rem; }
+        input[type=range] { width: 100%; accent-color: var(--accent); }
+        select { padding: 8px; border: 1px solid var(--border); border-radius: 4px; width: 100%; background: #fff; font-size: 0.9rem; }
+        .chart-box { position: relative; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px; margin-bottom: 20px; }
+        #flash-overlay { position: absolute; top:0; left:0; right:0; bottom:0; pointer-events: none; opacity: 0; border-radius: 8px; z-index: 10; }
+        .flash-yellow { background-color: rgba(217, 119, 6, 0.2); opacity: 1; }
+        .flash-red { background-color: rgba(220, 38, 38, 0.2); opacity: 1; }
+        .chart-small { height: 200px; }
+        .baseline-btns { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
+        .baseline-btn { padding: 6px 12px; border: 1px solid var(--muted); border-radius: 4px; background: #fff; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+        .baseline-btn:hover { background: #f3f4f6; }
+        .baseline-btn.active { background: var(--text); color: #fff; border-color: var(--text); }
+        .equation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 32px; }
+        .eq-card { border-left: 4px solid var(--accent); padding: 15px; background: #fff; border-radius: 0 6px 6px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .eq-card:nth-child(2) { border-color: var(--warning); }
+        .eq-card:nth-child(3) { border-color: #059669; }
+        .eq-card:nth-child(4) { border-color: #111827; }
+        .eq-title { font-weight: bold; font-size: 1rem; margin-bottom: 5px; }
+        .eq-formula { font-family: monospace; font-size: 0.9rem; background: #f3f4f6; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 5px; }
+        .eq-desc { font-size: 0.85rem; color: var(--muted); }
+        .d-recursion-note { margin-top: 8px; padding: 6px 10px; background: #f0f9ff; border-left: 3px solid var(--accent); font-size: 0.8rem; color: #1e40af; border-radius: 0 6px 6px 0; }
+        .phase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        .phase-card { border-left: 4px solid; padding: 15px; background: #fff; border-radius: 0 6px 6px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .phase-1 { border-color: var(--accent); }
+        .phase-2 { border-color: var(--warning); }
+        .phase-3 { border-color: #ea580c; }
+        .phase-4 { border-color: var(--danger); }
+        .evidence-note { font-size: 0.8rem; color: var(--muted); margin-top: 4px; margin-bottom: 8px; font-style: italic; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: #fff; }
+        th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: center; }
+        th { background: #f9fafb; font-weight: bold; }
+        .code-block { background: #f3f4f6; color: var(--text); padding: 16px; border-radius: 6px; font-family: monospace; white-space: pre-wrap; font-size: 0.8rem; border: 1px solid var(--border); line-height: 1.5; }
+        .note { font-size: 0.8rem; color: var(--muted); margin-top: 8px; text-align: center; }
+        .tech-note { font-size: 0.75rem; color: var(--muted); background: #fef9e3; padding: 6px 10px; border-radius: 6px; margin-top: 8px; }
+        small { font-size: 0.8rem; }
+        .chart-box-main { position: relative; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px; height: 450px; }
+        #mainChart { height: 100% !important; width: 100% !important; }
+        .engine-layout { display: flex; flex-direction: column; gap: 20px; }
+        .three-columns { display: flex; gap: 24px; flex-wrap: wrap; }
+        .col-left { flex: 2; min-width: 200px; }
+        .col-middle { flex: 1; min-width: 180px; }
+        .col-right { flex: 1; min-width: 180px; }
+        .diagnostics-area { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; height: auto; overflow-y: auto; font-size: 13px; }
+        .courtyard-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; height: auto; }
+        @media (max-width: 800px) { .three-columns { flex-direction: column; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--text); padding-bottom: 20px;">
+        <h1 style="margin:0; font-size: 2.5rem;">🧬 SRVD Dynamical Demonstration Platform</h1>
+        <p style="font-size: 1.1rem; color: var(--muted); margin-top: 10px;">Structural Recursive Viability Dynamics v7.6 | Five-fold Recursion + Viability Tripartition + Myopic Runaway Regime Anatomy · Fully Transparent</p>
+        <p style="font-size: 0.9rem; color: var(--muted); margin-top: 8px;">🔬 Core Dynamical Tendency: High I-V Coupling (β) → Endogenous Time Horizon Collapse (T_pred ↓) → Physical Dissipation Runaway (E ↑) → Objective Viability (V_obj → 0)<br>🧪 Corollary 9.1 (Early-Warning Window): T_pred collapse necessarily precedes energy runaway, providing a quantifiable intervention window.<br>📈 Decoupling Distance ΔVV (α=2.5 super-linear emergence): Endogenous Virtual Viability (V_virtual) detaches from Objective Viability. Upon V_obj collapse, ΔVV diverges → V_virtual hijacks Value Policy Target, overdrawing physical viability.</p>
+    </div>
+
+    <div class="equation-grid">
+        <div class="eq-card"><div class="eq-title">① I-Recursion (Self-Referential Nesting)</div><div class="eq-formula">I = I₀·(1+β·V)</div><div class="eq-desc">➜ Positive feedback, core coupling gain</div></div>
+        <div class="eq-card"><div class="eq-title">② T-Recursion (Endogenous Time Collapse)</div><div class="eq-formula">T_pred = T₀ / (1+λ·(βV)²)</div><div class="eq-desc">➜ Inverse-square collapse, driver of myopic runaway</div></div>
+        <div class="eq-card"><div class="eq-title">③ E-Recursion (Physical Dissipation)</div><div class="eq-formula">E = E_base + κ / T_pred</div><div class="eq-desc">➜ Horizon collapse → inverse surge in dissipation</div></div>
+        <div class="eq-card"><div class="eq-title">④ V-Recursion (Viability Dynamics)</div><div class="eq-formula">dV/dt = V·(V_drive − γ₀)·(1−V/V_max)</div><div class="eq-desc">➜ E > E_thresh triggers irreversible damage</div></div>
+    </div>
+    <div class="d-recursion-note">➕ ⑤ D-Recursion (Decoder Drift): <strong>D_{n+1} = f(D_n, V_n)</strong> — This engine locks D as the environmental reward function; decoder decoupling dynamics await higher-order co-evolutionary simulations.</div>
+
+    <div class="card">
+        <h2>⚙️ Real-Time Dynamical Engine (Slide β to observe the Myopic Runaway phase transition)</h2>
+        <div class="engine-layout">
+            <div class="chart-box-main" id="main-chart-container">
+                <div id="flash-overlay"></div>
+                <canvas id="mainChart"></canvas>
+            </div>
+            <div style="text-align: center; font-size: 12px; color: var(--muted); margin-top: -10px; margin-bottom: 5px;">Legend: Blue = V_obj (Objective Viability), Orange = T_pred (Time Horizon), Green = E (Physical Dissipation), Purple = ΔVV (Decoupling Distance)</div>
+            <div class="three-columns">
+                <div class="col-left">
+                    <div class="control-group">
+                        <label>🔗 Coupling Strength β : <span id="beta-val">3.50</span></label>
+                        <input type="range" id="beta" min="0.5" max="4.0" step="0.05" value="3.5">
+                        <small>β &lt; 2.0 Safe · β ≥ 2.5 Warning · β = 3.5 triggers full structural dissolution</small>
+                    </div>
+                    <div class="control-group">
+                        <label>⚡ Energy Sensitivity κ :</label>
+                        <select id="kappa">
+                            <option value="2.5">Low Metab. (κ=2.5) — Dormant State (T_pred collapses, but E stays below threshold)</option>
+                            <option value="5.0" selected>High Metab. (κ=5.0) — Structural Collapse (E breaches E_thresh)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-middle">
+                    <div class="diagnostics-area" id="diagnostics"><strong>🧠 Real-Time Diagnostics</strong><br>Waiting for simulation...</div>
+                </div>
+                <div class="col-right">
+                    <div class="courtyard-box">
+                        <h3 style="font-size:16px; margin-top:0;">🧪 Causal Tribunal & Indicators</h3>
+                        <p style="font-size:13px; color:var(--muted); margin-bottom:10px;">Overlay baseline V curves (grey dashed) to verify causal prerequisites (Ablation Models A/B/C/D).</p>
+                        <div class="baseline-btns">
+                            <button class="baseline-btn" onclick="toggleBaseline('A')">Model A (No T-Recursion)</button>
+                            <button class="baseline-btn" onclick="toggleBaseline('B')">Model B (No E-Feedback)</button>
+                            <button class="baseline-btn" onclick="toggleBaseline('C')">Model C (Linear T)</button>
+                            <button class="baseline-btn" onclick="toggleBaseline('D')">Model D (No Coupling)</button>
+                        </div>
+                        <div style="margin-top: 15px; font-size: 12px; border-top: 1px solid var(--border); padding-top: 10px;">
+                            <div><span style="background-color: #fbbf24; display: inline-block; width: 12px; height: 12px; border-radius: 2px;"></span> Yellow Flash: T_pred &lt; 3.0 (Endogenous Time Collapse warning) · <span style="background-color: #ef4444; display: inline-block; width: 12px; height: 12px; border-radius: 2px;"></span> Red Flash: E &gt; 5.0 (Dissipation threshold breached)</div>
+                            <div><span style="color: #9333ea;">Purple: ΔVV (Decoupling Distance)</span> — rockets upward when V_virtual decouples from V_obj</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="background: #fff;">
+        <h2>📉 Myopic Runaway Regime (Hyper-Coupled Short‑sighted Phase) — Four‑Stage Phase Sequence</h2>
+        <div class="phase-grid">
+            <div class="phase-card phase-1"><h3>📈 Stage 1: Positive Feedback Overheating</h3><p>I-V positive feedback; Endogenous Virtual Viability (V_virtual) detaches from physical constraints. Exponential growth of internal valuation masks true limits.</p></div>
+            <div class="phase-card phase-2"><h3>⏳ Stage 2: Endogenous Time Collapse</h3><p>T_pred drops below 3.0 → Warning. Hyper‑inflated virtual valuation crushes the time horizon.<br><strong>(Chart flashes yellow)</strong></p></div>
+            <div class="phase-card phase-3"><h3>🔥 Stage 3: Dissipation Surge</h3><p>E surges above 5.0 (E_thresh). Myopic extraction of physical resources to sustain V_virtual damages structural integrity.<br><strong>(Chart flashes red)</strong></p></div>
+            <div class="phase-card phase-4"><h3>💀 Stage 4: Structural Dissolution</h3><p>V_obj collapses to zero (phenomenological hard‑threshold). The system loses all viability capacity.</p></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📐 Parameter Scanning · Phase Space Exploration</h2>
+        <div class="flex-row">
+            <div class="col-2 chart-box">
+                <h3 style="font-size:14px; text-align:center;">💤 Low Metab. κ=2.5 (Dormant State)</h3>
+                <div class="evidence-note">T_pred collapses but E remains below E_thresh. System survives in a low‑activity dormant state.</div>
+                <canvas id="chart-k-low" class="chart-small"></canvas>
+            </div>
+            <div class="col-2 chart-box">
+                <h3 style="font-size:14px; text-align:center;">🔥 High Metab. κ=5.0 (Structural Collapse)</h3>
+                <div class="evidence-note">E breaches E_thresh → triggers irreversible damage, V_obj drops to zero.</div>
+                <canvas id="chart-k-high" class="chart-small"></canvas>
+            </div>
+        </div>
+        <div class="flex-row" style="margin-top: 20px;">
+            <div class="col-2 chart-box"><h3 style="font-size:14px; text-align:center;">⚖️ Low Coupling β=0.8 (Healthy Survival)</h3><canvas id="chart-beta-low" class="chart-small"></canvas></div>
+            <div class="col-2 chart-box"><h3 style="font-size:14px; text-align:center;">💀 High Coupling β=3.5 (Structural Collapse)</h3><canvas id="chart-beta-high" class="chart-small"></canvas></div>
+        </div>
+        <div class="chart-box" style="margin-top: 20px;"><h3 style="font-size:14px; text-align:center;">📉 Comparison of T_pred Collapse Rates across β values</h3><canvas id="chart-tpred-compare" class="chart-small" style="height: 220px;"></canvas></div>
+    </div>
+
+    <div class="card" style="background: #fff;">
+        <h2>📊 Corollary 9.1 (Early‑Warning Window) — Quantitative Table (κ=5.0, δ=5.0)</h2>
+        <p style="font-size:13px; color:var(--muted);">The window = steps between T_pred collapse (T_pred<3.0) and E>E_thresh. Always positive → consistent with the claim that time collapse precedes physical runaway.</p>
+        <table style="margin-top: 10px;"><thead><tr><th>β Value</th><th>T_pred hits warning (Step)</th><th>E &gt; E_thresh (Step)</th><th>Early‑Warning Window (Step Diff)</th><th>System Fate</th></tr></thead>
+        <tbody>
+        <tr><td>2.0</td><td>2</td><td>8</td><td>6</td><td>💀 Dissolution</td></tr>
+        <tr><td>2.5</td><td>2</td><td>7</td><td>5</td><td>💀 Dissolution</td></tr>
+        <tr><td>3.0</td><td>1</td><td>6</td><td>5</td><td>💀 Dissolution</td></tr>
+        <tr><td>3.5</td><td>1</td><td>5</td><td>4</td><td>💀 Dissolution</td></tr>
+        <tr><td>4.0</td><td>1</td><td>5</td><td>4</td><td>💀 Dissolution</td></tr>
+        </tbody>
+        </table>
+        <div class="note">✅ Early‑Warning Window is consistently positive (4–6 steps), directly supporting Corollary 9.1: Endogenous Time Collapse precedes physical dissipation runaway.</div>
+        <div class="tech-note">⚠️ Technical Note: Irreversible structural damage uses a phenomenological hard‑threshold approximation (triggering $-\delta V$ when E > E_thresh) to simulate dissolution. Future work will replace this with continuous ODE bifurcation.</div>
+    </div>
+
+    <div class="card">
+        <h2>🔬 Ablation Study & Dormant State Confirmation</h2>
+        <table style="margin-top: 10px;"><thead><tr><th>Model</th><th>Conditions</th><th>V_obj_final</th><th>Conclusion</th></tr></thead>
+        <tbody>
+            <tr><td>Full Model</td><td>β=3.5, κ=5.0</td><td>0.00</td><td>💀 Dissolved (hard threshold triggered)</td></tr>
+            <tr><td>Model A (No T-Recursion)</td><td>β=3.5, κ=5.0</td><td>10.0</td><td>✅ Survived (constant T_pred)</td></tr>
+            <tr><td>Model B (No E-Feedback)</td><td>β=3.5, κ=5.0</td><td>10.0</td><td>✅ Survived (constant E)</td></tr>
+            <tr><td>Model C (Linear T)</td><td>β=3.5, κ=5.0</td><td>10.0</td><td>✅ Survived (no inverse‑square collapse)</td></tr>
+            <tr><td>Model D (No Coupling)</td><td>β=0, κ=5.0</td><td>10.0</td><td>✅ Stable growth</td></tr>
+            <tr><td>Dormant State</td><td>β=3.5, κ=2.5</td><td>≈3.50</td><td>💤 Dormant (survives, low activity)</td></tr>
+        </tbody>
+        </table>
+        <div class="note">Ablation results confirm that <strong>T-Recursion (inverse‑square collapse)</strong> and <strong>E-Recursion (energy feedback)</strong> are jointly necessary for structural dissolution. At low κ, the system enters a Dormant State, consistent with Section 3.2.</div>
+    </div>
+
+    <div class="card">
+        <h2>⚙️ Complete Simulation Engine · Black‑Box Free & Fully Reproducible</h2>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:12px;">📋 JavaScript implementation below. ΔVV (Decoupling Distance) is computed using the super‑linear emergent exponent α=2.5 as derived in Section 4.2 (linear stability analysis).</p>
+        <div class="code-block">
+// SRVD v7.6 Complete Simulation Engine (Five‑fold recursion | Full, A, B, C, D models)
+// Author: Ruifeng Liang
+const params = {
+    I0: 1.0, T_init: 10.0, E_base: 1.0,
+    k: 0.5, lambda: 0.08, gamma0: 1.2,
+    V_max: 10.0, E_thresh: 5.0, delta: 5.0, dt: 0.2
+};
+
+function runSimulation(beta, kappa, modelType = 'Full') {
+    let V_obj = 1.0, T_pred, I_net, E, r;
+    let data = { V_obj: [], T_pred: [], E: [], steps: [], deltaVV: [] };
+    let isDead = false;
+    let currentBeta = beta;
+    let V_virtual = 1.0;
+    const alpha = 2.5;   // emergent exponent from I-V closed loop (Sec 4.2)
+
+    for (let step = 0; step <= 150; step++) {
+        I_net = params.I0 * (1 + currentBeta * V_obj);
+
+        if (modelType === 'A') {
+            T_pred = params.T_init;
+        } else if (modelType === 'C') {
+            T_pred = Math.max(0.08, params.T_init / (1 + params.lambda * currentBeta * V_obj));
+        } else {
+            T_pred = Math.max(0.08, params.T_init / (1 + params.lambda * Math.pow(currentBeta * V_obj, 2)));
+        }
+
+        if (modelType === 'B') {
+            E = params.E_base;
+        } else {
+            E = params.E_base + kappa / T_pred;
+        }
+
+        if (modelType === 'D') {
+            currentBeta = 0;
+            I_net = params.I0;
+        }
+
+        r = params.k * (I_net * T_pred) / E;
+
+        data.steps.push(step);
+        data.V_obj.push(V_obj);
+        data.T_pred.push(T_pred);
+        data.E.push(E);
+
+        // Virtual valuation (super-linear phase transition, α=2.5)
+        let I_virtual_net = params.I0 * Math.pow(1 + currentBeta * V_obj, alpha);
+        let r_virtual = params.k * (I_virtual_net * T_pred) / E;
+        let dV_virtual_dt = V_virtual * (r_virtual - params.gamma0);
+        V_virtual += dV_virtual_dt * params.dt;
+        V_virtual = Math.max(0, Math.min(V_virtual, 100 * params.V_max));
+        let deltaVV = Math.abs(V_virtual - V_obj);
+        data.deltaVV.push(deltaVV);
+
+        // Real objective viability dynamics
+        let dVdt = V_obj * (r - params.gamma0) * (1 - V_obj / params.V_max);
+        if (E > params.E_thresh) isDead = true;
+        if (isDead) dVdt -= params.delta * V_obj;
+        V_obj += dVdt * params.dt;
+        V_obj = Math.min(V_obj, params.V_max);
+        if (V_obj < 0) V_obj = 0;
+    }
+    return data;
+}
+        </div>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 10px;">⚠️ Phenomenological hard‑threshold approximation for structural dissolution (δ=5.0). The engine fully reproduces the Early‑Warning Window (Corollary 9.1) and Viability Tripartition (ΔVV divergence) described in SRVD v7.6.</p>
+    </div>
+</div>
+<script>
+    const params = { I0:1.0, T_init:10.0, E_base:1.0, k:0.5, lambda:0.08, gamma0:1.2, V_max:10.0, E_thresh:5.0, delta:5.0, dt:0.2 };
+    function runSimulation(beta, kappa, modelType='Full') {
+        let V_obj=1.0, T_pred, I_net, E, r;
+        let data={V_obj:[], T_pred:[], E:[], steps:[], deltaVV:[]};
+        let isDead=false, currentBeta=beta;
+        let V_virtual=1.0;
+        const alpha=2.5;
+        for(let step=0; step<=150; step++) {
+            I_net = params.I0*(1+currentBeta*V_obj);
+            if(modelType==='A') T_pred=params.T_init;
+            else if(modelType==='C') T_pred=Math.max(0.08, params.T_init/(1+params.lambda*currentBeta*V_obj));
+            else T_pred=Math.max(0.08, params.T_init/(1+params.lambda*Math.pow(currentBeta*V_obj,2)));
+            if(modelType==='B') E=params.E_base;
+            else E=params.E_base+kappa/T_pred;
+            if(modelType==='D') { currentBeta=0; I_net=params.I0; }
+            r = params.k * I_net * T_pred / E;
+            data.steps.push(step); data.V_obj.push(V_obj); data.T_pred.push(T_pred); data.E.push(E);
+            let I_virtual_net = params.I0 * Math.pow(1+currentBeta*V_obj, alpha);
+            let r_virtual = params.k * I_virtual_net * T_pred / E;
+            let dV_virtual_dt = V_virtual * (r_virtual - params.gamma0);
+            V_virtual += dV_virtual_dt * params.dt;
+            V_virtual = Math.max(0, Math.min(V_virtual, 100 * params.V_max));
+            let deltaVV = Math.abs(V_virtual - V_obj);
+            data.deltaVV.push(deltaVV);
+            let dVdt = V_obj * (r - params.gamma0) * (1 - V_obj/params.V_max);
+            if(E > params.E_thresh) isDead=true;
+            if(isDead) dVdt -= params.delta * V_obj;
+            V_obj += dVdt * params.dt;
+            V_obj = Math.min(V_obj, params.V_max);
+            if(V_obj<0) V_obj=0;
+        }
+        return data;
+    }
+
+    const ctx = document.getElementById('mainChart').getContext('2d');
+    const mainChart = new Chart(ctx, {
+        type:'line', data:{labels:[], datasets:[
+            {label:'V_obj (Objective Viability)', data:[], borderColor:'#2563eb', borderWidth:2, yAxisID:'y-left'},
+            {label:'T_pred (Time Horizon)', data:[], borderColor:'#d97706', borderWidth:2, yAxisID:'y-left'},
+            {label:'E (Physical Dissipation)', data:[], borderColor:'#10b981', borderWidth:2, yAxisID:'y-right'},
+            {label:'ΔVV (Decoupling Distance)', data:[], borderColor:'#9333ea', borderWidth:2, yAxisID:'y-right', borderDash:[]},
+            {label:'Baseline V (Ablation)', data:[], borderColor:'#9ca3af', borderWidth:2, borderDash:[5,5], yAxisID:'y-left', hidden:true}
+        ]},
+        options:{ responsive:true, maintainAspectRatio:true, interaction:{mode:'index', intersect:false}, scales:{ 'y-left':{title:{display:true, text:'V_obj & T_pred'}, min:0, max:12}, 'y-right':{title:{display:true, text:'E & ΔVV'}, min:0, max:20, grid:{drawOnChartArea:false}} } }
+    });
+
+    const betaSlider=document.getElementById('beta'), kappaSelect=document.getElementById('kappa');
+    function updateMainChart() {
+        const beta=parseFloat(betaSlider.value), kappa=parseFloat(kappaSelect.value);
+        document.getElementById('beta-val').innerText=beta.toFixed(2);
+        const data=runSimulation(beta, kappa, 'Full');
+        mainChart.data.labels=data.steps;
+        mainChart.data.datasets[0].data=data.V_obj;
+        mainChart.data.datasets[1].data=data.T_pred;
+        mainChart.data.datasets[2].data=data.E.map(v=>Math.min(v,20));
+        mainChart.data.datasets[3].data=data.deltaVV.map(v=>Math.min(v,20));
+        mainChart.data.datasets[4].hidden=true;
+        document.querySelectorAll('.baseline-btn').forEach(btn=>btn.classList.remove('active'));
+        mainChart.update();
+        const vPeak=Math.max(...data.V_obj), vPeakStep=data.V_obj.indexOf(vPeak), tWarnStep=data.T_pred.findIndex(t=>t<3.0), eCrashStep=data.E.findIndex(e=>e>5.0), finalV=data.V_obj[data.V_obj.length-1].toFixed(4);
+        let diagHtml=`<strong>🧠 Real-Time Diagnostics</strong><br>Objective Viability peak = ${vPeak.toFixed(2)} (Step: ${vPeakStep})<br>`;
+        if(tWarnStep!==-1) diagHtml+=`⏳ T_pred &lt; 3.0 Warning (Step: ${tWarnStep})<br>`;
+        if(eCrashStep!==-1) diagHtml+=`🔥 E > ${params.E_thresh} Breached (Step: ${eCrashStep})<br>`;
+        if(tWarnStep!==-1 && eCrashStep!==-1) diagHtml+=`🧪 Early-Warning Window = ${eCrashStep - tWarnStep} steps<br>`;
+        diagHtml+=`Final State: ${finalV<=0.01?'💀 Dissolved (V_obj=0)':'💤 Survived (Dormant)'}`;
+        document.getElementById('diagnostics').innerHTML=diagHtml;
+        if(tWarnStep!==-1 && eCrashStep===-1) flashScreen('yellow');
+        else if(eCrashStep!==-1) flashScreen('red');
+    }
+    function flashScreen(color){ const overlay=document.getElementById('flash-overlay'); overlay.className=color==='yellow'?'flash-yellow':'flash-red'; setTimeout(()=>overlay.className='',400); }
+    function toggleBaseline(modelType){
+        const btn=event.target, isActive=btn.classList.contains('active');
+        document.querySelectorAll('.baseline-btn').forEach(b=>b.classList.remove('active'));
+        if(!isActive){
+            btn.classList.add('active');
+            const beta=parseFloat(betaSlider.value), kappa=parseFloat(kappaSelect.value);
+            const baseData=runSimulation(beta, kappa, modelType);
+            mainChart.data.datasets[4].data=baseData.V_obj;
+            mainChart.data.datasets[4].label=`Model ${modelType==='A'?'A':modelType==='B'?'B':modelType==='C'?'C':'D'} V_obj (Baseline)`;
+            mainChart.data.datasets[4].hidden=false;
+        } else mainChart.data.datasets[4].hidden=true;
+        mainChart.update();
+    }
+    betaSlider.addEventListener('input', updateMainChart);
+    kappaSelect.addEventListener('change', updateMainChart);
+    updateMainChart();
+
+    const baseChartOptions={ responsive:true, maintainAspectRatio:true, plugins:{legend:{position:'bottom', labels:{boxWidth:12}}}, scales:{y:{beginAtZero:true}, x:{title:{display:true, text:'Steps'}} } };
+    function renderFixedChart(canvasId, beta, kappa){
+        const data=runSimulation(beta, kappa, 'Full');
+        new Chart(document.getElementById(canvasId), { type:'line', data:{ labels:data.steps, datasets:[
+            {label:'V_obj', data:data.V_obj, borderColor:'#2563eb', borderWidth:1.5},
+            {label:'T_pred', data:data.T_pred, borderColor:'#d97706', borderWidth:1.5},
+            {label:'E', data:data.E.map(v=>Math.min(v,20)), borderColor:'#10b981', borderWidth:1.5},
+            {label:'ΔVV', data:data.deltaVV.map(v=>Math.min(v,20)), borderColor:'#9333ea', borderWidth:1.5}
+        ] }, options:baseChartOptions });
+    }
+    renderFixedChart('chart-k-low',3.5,2.5);
+    renderFixedChart('chart-k-high',3.5,5.0);
+    renderFixedChart('chart-beta-low',0.8,5.0);
+    renderFixedChart('chart-beta-high',3.5,5.0);
+    const betas=[0.5,1.5,2.5,3.5], colors=['#6b7280','#2563eb','#d97706','#dc2626'];
+    const tpredDatasets=betas.map((b,i)=>{ const d=runSimulation(b,5.0,'Full'); return {label:`β=${b}`, data:d.T_pred, borderColor:colors[i], borderWidth:1.5}; });
+    new Chart(document.getElementById('chart-tpred-compare'), { type:'line', data:{ labels:runSimulation(0.5,5.0).steps, datasets:tpredDatasets }, options:{...baseChartOptions, scales:{y:{beginAtZero:true, title:{display:true, text:'T_pred'}}, x:{title:{display:true, text:'Steps'}}} } });
+</script>
+</body>
+</html>
