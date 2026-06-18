@@ -1,3 +1,4 @@
+https://doi.org/10.5281/zenodo.20478506
 # Structural Recursive Viability Dynamics (SRVD) v7.6
 
 ## **Macro-Viability and Higher-Order Phase Transitions: Non-Equilibrium Dynamics of Persistent Structures**
