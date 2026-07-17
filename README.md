@@ -138,12 +138,14 @@ No implicit patent license is provided. Patent applications derived from SRVD re
   year = {2026},
   url = {https://github.com/your-username/SRVD}
 }
-```
-OSF永久DOI: 10.17605/OSF.IO/6Z453
-OSF项目主页: https://osf.io/6z453/
+OSF永久DOI: 10.17605/OSF.IO/MD4Z5
+OSF项目主页: https://osf.io/md4z5/
+
+Zenodo永久DOI: 10.5281/zenodo.21322552
+Zenodo项目主页: https://doi.org/10.5281/zenodo.21322552
 
 APA:
-Liang, R. (2026, June 19). Structural Recursive Viability Dynamics (SRVD). https://doi.org/10.17605/OSF.IO/6Z453
+Liang, R. (2026, June 19). Structural Recursive Viability Dynamics (SRVD). https://doi.org/10.5281/zenodo.21322552
 
 BibTeX:
 @misc{liang2026srvd,
@@ -152,11 +154,9 @@ BibTeX:
   year={2026},
   month={6},
   day={19},
-  doi={10.17605/OSF.IO/6Z453},
-  publisher={OSF},
-  url={https://osf.io/6z453/}
+  doi={10.5281/zenodo.21322552},
+  publisher={Zenodo},
+  url={https://doi.org/10.5281/zenodo.21322552}
 }
 
-
 Contact: fineflowerrain@gmail.com
-```
