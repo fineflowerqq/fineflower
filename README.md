@@ -1,8 +1,3 @@
-好的，这是英文版 README.md，结构与中文版完全对应，LaTeX 公式完整保留，适合 GitHub/Gitee 国际用户阅读。
-
----
-
-```markdown
 # Structure Recursive Viability Dynamics (SRVD) — A Unified Thermodynamic Ledger for All Ordered Structures in an Entropic Universe
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322552.svg)](https://doi.org/10.5281/zenodo.21322552)
