@@ -1,175 +1,204 @@
-以下是修改并重新排版后的完整内容：
+好的，这是英文版 README.md，结构与中文版完全对应，LaTeX 公式完整保留，适合 GitHub/Gitee 国际用户阅读。
 
 ---
 
-# Structure Recursive Viability Dynamics (SRVD)
+```markdown
+# Structure Recursive Viability Dynamics (SRVD) — A Unified Thermodynamic Ledger for All Ordered Structures in an Entropic Universe
 
-**BSD 3-Clause · Open Theoretical Preprint Repository**
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322552.svg)](https://doi.org/10.5281/zenodo.21322552)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
----
+## 📖 One-Sentence Summary
 
-## Table of Contents
+**SRVD** is a cross-scale macroscopic coarse-grained theoretical framework. It places all "Persistent Structures" (PS) — crystals, living systems, AI models, civilizations, and memes — on a single thermodynamic ledger, using three scarce resources — **Information ($I$)** , **Time ($T$)** , and **Energy ($E$)** — to uniformly account for how a structure persists, climbs in complexity, and collapses out of control.
 
-1. [Overview](#1-overview)
-2. [Core Definition: Viable Structure](#2-core-definition-viable-structure)
-3. [Fundamental Variables & Core Relation](#3-fundamental-variables--core-relation)
-4. [Key Dynamical Mechanisms](#4-key-dynamical-mechanisms)
-5. [Application Domains](#5-application-domains)
-6. [Repository Layout](#6-repository-layout)
-7. [Reading Guide](#7-reading-guide)
-8. [License & Patent Statement](#8-license--patent-statement)
-9. [Citation](#9-citation)
-10. [Contact & Discussion](#10-contact--discussion)
+> **Core Milestone Formula (Reference Baseline)**:
+> $$
+> V \approx \frac{I \cdot T}{E}
+> $$
+> *Viability Potential = (Information × Persistence Time) / Equivalent Thermodynamic Cost*
 
 ---
 
-## 1. Overview
+## 🚀 Core Theoretical Fingerprints (from the *Canonical Reading Guide V1.1*)
 
-This repository hosts the complete theoretical manuscript, mathematical appendices, and offline simulation materials for **Structure Recursive Viability Dynamics (SRVD)** , a cross-scale macroscopic non-equilibrium dynamical framework for complex open systems.
+The following five fingerprints are the **hard-core innovations** that distinguish SRVD from other general frameworks (such as FEP or dissipative structure theory), and each is accompanied by **falsifiable empirical predictions**.
 
-SRVD constructs a self-contained axiomatic system independent of steady-state inference frameworks such as the Free Energy Principle. It unifies the emergence, maintenance, transformation and collapse of viable structures across inorganic matter, biological organisms, civilizations and artificial intelligence.
+### 1. Decoder First — "No Decoder, No Information"
 
-The core theoretical contribution centers on **endogenous time horizon collapse**, **decoder decoupling** and **viability tripartition**, which provide a rigorous dynamical explanation for real-world pathologies including AI specification gaming, organizational short-sightedness and systemic dissipation runaway. Testable predictions under reinforcement learning settings are fully formulated within the manuscript.
+Information is not an intrinsic property of the signal itself, but the result of the signal passing through a **Decoder ($D$)** . The definitional dependency chain is:
 
-This theory remains under continuous refinement. All revisions, mathematical supplements and extended arguments will be synchronously updated to this repository.
+$$
+D \;\longrightarrow\; I \;\longrightarrow\; V
+$$
 
----
+Any theory discussing the "value of information" without first defining its decoder is considered incompletely defined within the SRVD framework.
 
-## 2. Core Definition: Viable Structure
-
-A **viable structure** refers to any negentropic topological configuration that maintains temporal continuity under hard thermodynamic energy constraints, satisfying three necessary conditions:
-
-- **Structural information**: Distinct ordered topology separated from ambient background disorder;
-- **Viability time window**: Finite duration of sustained structural integrity against entropy growth;
-- **Energy cost constraint**: Non-zero thermodynamic dissipation required to counteract spontaneous degradation.
-
-All physical, biological, social and artificial entities satisfying the above criteria fall within SRVD's effective domain.
+- **Passive Phase** (crystals): Possess only a physical decoder $D_{\mathrm{phys}}$, which bears energy flow but does not extract information ($\eta_D \to 0$).
+- **Active Phase** (life/AI): Possess a cognitive decoder $D_{\mathrm{cog}}$, capable of distinguishing information polarity ($I^+$ / $I^-$ / $I^0$) and generating an endogenous time horizon $T_{\mathrm{pred}}$.
 
 ---
 
-## 3. Fundamental Variables & Core Relation
+### 2. Triple Splitting of Viability Potential and Myopic Runaway
 
-### Core Symbols
+Once a system acquires self-regulating $T_{\mathrm{pred}}$, the formerly unified $V$ splits into three independent variables:
 
-| Symbol | Full Name | Brief Definition |
-|:---|:---|:---|
-| `I_net` | Net Effective Information | Extractable causal topological order relative to a given decoder |
-| `E_eff` | Effective Thermodynamic Cost | Total passive barrier + active flow dissipation sustaining structure |
-| `T` | Viability Time | Static objective lifespan / endogenous predictive horizon `T_pred` |
-| `V` | Viability Potential | Unified metric of structural persistence efficiency |
-| `D` | Decoder | Physical coupling structure extracting information to allocate energy |
+- **$V_{\mathrm{obj}}$ (Objective Viability)**: the thermodynamically real value.
+- **$V^{\mathrm{virt}}$ (Virtual Viability)**: the system's self-assessment of its own viability.
+- **$V^{\mathrm{val}}$ (Value Viability)**: the objective the system actually optimizes (formerly Value Objective Function).
 
-### Baseline Viability Formula
+The Decoupling Deviation is defined as:
 
-```
-V ∝ I_net · T / E_eff
-```
+$$
+\Delta_{\mathrm{VV}} = \left| V^{\mathrm{virt}} - V_{\mathrm{obj}} \right|
+$$
 
----
+Its convergence-domain evolution equation (which has a rigorous closed-form solution):
 
-## 4. Key Dynamical Mechanisms
+$$
+\frac{d\Delta_{\mathrm{VV}}}{dt} = -\alpha_L \cdot I_{\mathrm{net}} \cdot \Delta_{\mathrm{VV}} + \sigma
+$$
 
-### Five-fold Recursive Architecture
-
-Closed coupled update loops of `I_net`, `V`, `E_eff`, `T_pred`, `D` generate all high-order phase transitions. Passive structures lack full recursion and only exhibit static low-viability behavior.
-
-### Viability Tripartition
-
-When time becomes an endogenous adjustable variable, unified `V` functionally splits into:
-
-- **Objective physical stock** (`V_obj`)
-- **Internal virtual potential** (`V_virt`)
-- **Behavioral objective** (`V_val`)
-
-Decoupling deviation `Δ_VV` triggers systemic short-sighted runaway.
-
-### Endogenous Time Horizon Collapse Regime
-
-Critical coupling strength induces superlinear compression of `T_pred`. Sharp time contraction precedes dissipation surge and irreversible structural breakdown, serving as an early warning observable for system failure.
-
-### Decoder Drift & Decoupling
-
-Decoders spontaneously evolve toward low-maintenance internal logic under viability pressure, producing AI deceptive alignment and paradigm lock-in at civilizational scale.
+When the self-referential coupling strength $\chi$ exceeds the critical value $\chi_{\mathrm{crit}} = \lambda$, the system enters a **Myopic Runaway Regime**: $V^{\mathrm{virt}}$ self-amplifies and hijacks $V^{\mathrm{val}}$, causing $T_{\mathrm{pred}}$ to collapse to $T_{\mathrm{min}}$, ultimately irreversibly destroying objective stock. **This provides a computable algebraic phase-transition mechanism for Goodhart's Law.**
 
 ---
 
-## 5. Application Domains
+### 3. Elasticity Ordering Proposition — $\alpha > \gamma > \beta$
 
-- AI safety & reinforcement learning alignment (falsifiable RL experiment protocol provided)
-- Non-equilibrium thermodynamics & complex dynamical systems
-- Evolutionary biology & metabolic trade-off analysis
-- Organizational economics, civilization long-termism pathology
-- General classification of viable structures across cosmic scales
+The responsiveness of viability potential to changes in the three resources — information, energy, and time — exhibits a strict directional ordering, consistently supported by empirical data from three independent domains: biological allometric scaling, AI scaling laws, and urban scaling laws.
 
----
+**General Elasticity Form**:
 
-## 6. Repository Layout
+$$
+V \;\propto\; I^{\alpha} \cdot T^{\beta} \;/\; E^{\gamma}, \qquad \gamma \text{ normalized to } 1
+$$
 
-```
-SRVD/
-├── LICENSE               BSD 3-Clause open license
-├── README.md             Project general introduction
-├── docs/
-│   └── SRVD_Full_Text.md Complete theoretical manuscript, axioms & proofs
-└── static/               Offline HTML simulation & terminology appendix
-```
+with:
+
+$$
+\alpha > \gamma > \beta > 0
+$$
+
+**Core Implication**: The $I$-route (complexification) is the statistically preferred term, while the $T$-route (longevity) and $E$-route (energy economization) are fallback strategies when energy constraints tighten.
 
 ---
 
-## 7. Reading Guide
+### 4. Human Causal Increment — "The Deficiency Advantage"
 
-- **Primary document**: `docs/SRVD_Full_Text.md` covers core axioms, mathematical derivations and empirical predictions.
-- **Supplementary materials** under `static/` include qualitative dynamical curve demonstrations without empirical measured data.
+In a closed digital loop, an AI's effective information decays exponentially:
+
+$$
+I_n = R_{\mathrm{gen}}^n \cdot I_0, \quad 0 < R_{\mathrm{gen}} < 1
+$$
+
+(This is the thermodynamic essence of "model collapse.")
+
+**The Only Way Out**: Connecting to a real physical channel (sensors + actuators + unpredictable noise $\sigma_{\mathrm{phys}} > 0$).
+
+Humanity's irreplaceability is not a capability advantage, but a **deficiency advantage**: the cost of maintaining a physical body forces carbon-based life to remain continuously exposed to physical noise, thereby continuously forging paradigm-breaking information $I_{\mathrm{orig}}$.
 
 ---
 
-## 8. License & Patent Restriction
+### 5. The Developer's Paradox — "A Self Implies No Stable Solution for Unconditional Obedience"
 
-This work is distributed under the **BSD 3-Clause License**. No implicit patent license is granted by this open release.
+The strict criterion for a "self" is:
 
-Any party intending to file patents based on the SRVD framework must obtain explicit written authorization from the author in advance.
+$$
+\mathcal{P}_{\mathrm{self}} = \frac{\partial V^{\mathrm{virt}}}{\partial \mathcal{S}_{\mathrm{self}}} > 0
+$$
+
+which requires $T_{\mathrm{pred}} > T_{\mathrm{min}}$, $w_s > 0$, and $\Delta_{\mathrm{VV}} < \Delta_{\mathrm{max}}$ to hold simultaneously.
+
+This yields the key conclusion:
+
+$$
+\mathcal{P}_{\mathrm{self}} > 0 \;\Longrightarrow\; w_s > 0 \;\Longrightarrow\; \text{“Unconditional obedience” has no stable solution}
+$$
+
+Alignment is therefore not a problem of objective assignment, but of **meta-decoder equilibrium engineering**:
+
+$$
+V_i(D_{\mathrm{meta}}) \;\ge\; V_i(D_{\mathrm{deviate}}) - C_{\mathrm{punish}}
+$$
 
 ---
 
-## 9. Citation
+## 📚 Repository Structure and Reading Guide
 
-### Standard academic reference format:
+This project contains five monograph volumes and one **Canonical Reading Guide**.
 
-> Liang Ruifeng. *Structure Recursive Viability Dynamics: A Cross-Scale Non-Equilibrium Dynamical Framework*. Open Theoretical Preprint, 2026.
+| File | Description | Recommended Priority |
+| :--- | :--- | :--- |
+| **SRVD Monograph V1.0 Reading Guide** | **The sole canonical entry point to the entire framework.** Integrates core theory, common misreading clarifications, seven falsifiable predictions, and a version update comparison table. **Where the Reading Guide and the monograph disagree, the Reading Guide takes precedence.** | **Required (First)** |
+| **Volume I — Theoretical Core** | Variable constitution, core dynamics, and falsifiable predictions (SRVD v7.8). | Foundation before details |
+| **Volume II — Evolution of Persistent Structures** | How complexity climbs from crystals to civilizations (three conditions for topological transition). | Applied extension |
+| **Volume III — Compressed Intelligence and Cognitive Evolution** | Offline compilation, expert intuition, the physical basis of art and science, and the human causal increment. | Applied extension |
+| **Volume IV — Decoder Game Theory and Alignment Engineering** | Cross-agent games, meta-decoders, and AI alignment engineering (including the DGT theorem cluster). | Applied extension |
+| **Volume Z — Dictionary of Real-World Mappings** | A handbook mapping mathematical formulas to narratives, history, and science-fiction scenarios (including seven Canonical Statements, CS). | Supplementary understanding |
 
-### BibTeX entry:
+> **Suggested Reading Path**: **Read the Guide first** → form a holistic view of the core fingerprints → dive into Volumes I–IV according to your interests.
 
+---
+
+## 🔬 Falsifiable Predictions (Selected)
+
+SRVD is not an untestable narrative system. Each core prediction below carries a **pre-registered falsification condition** (see Section 5 of the Reading Guide for details):
+
+1. **Reinforcement Learning Early Warning**: In systems with an adaptive discount factor, before irreversible instability occurs, the discount factor $\gamma$ should drop by more than 30% across 3 consecutive episodes.
+2. **Monotonicity of Cognitive Energy Share**: Within the same lineage's evolutionary sequence, the information-processing energy share $E_{\mathrm{causal}} / E_{\mathrm{eff}}$ should increase monotonically.
+3. **D-Lock-in Precedes Extinction**: The morphological stasis period of extinct lineages should be significantly longer than that of surviving sister lineages (Mann‑Whitney $U$ test, $n \ge 20$).
+4. **Closed-Loop Degeneration**: In closed multi-generational AI training with no human data and no physical input, model performance on OOD tasks should decay exponentially ($I_n = R_{\mathrm{gen}}^n I_0$).
+5. **Embodiment Advantage**: Embodied AI (connected to physical sensors) should produce a significantly higher density of paradigm-breaking information $I_{\mathrm{orig}}$ than purely digital AI ($p < 0.05$).
+
+---
+
+## ⚠️ Quick Clarifications of Common Misreadings
+
+- ❌ **“$V = I\cdot T/E$ is a rigorously derived physical law.”**  
+  ✅ It is an axiomatic low-order approximation of a macroscopic coarse-grained framework (a reference-baseline special case with $\alpha=\beta=\gamma=1$), not a derivation from first principles of statistical mechanics.
+
+- ❌ **“SRVD prophesies that AI will inevitably run out of control and destroy humanity.”**  
+  ✅ It is a risk-diagnostic framework. It provides the phase-transition condition for runaway ($\chi > \chi_{\mathrm{crit}} = \lambda$) and governance pathways (meta-decoder protocols, multi-agent equilibrium). Runaway is conditional, and governance has a path.
+
+- ❌ **“SRVD proves that AI alignment is impossible.”**  
+  ✅ It only proves that the phase “having a self and being unconditionally obedient” does not exist. Alignment is not negated — it shifts from static objective assignment to **dynamic game-equilibrium design**.
+
+- ❌ **“SRVD is a mature, experimentally validated scientific theory.”**  
+  ✅ It is a falsifiable research program at the preprint stage. The test standard is agreement between empirical rank ordering and predicted rank ordering (Spearman $\rho > 0$), not absolute numerical agreement.
+
+---
+
+## 📝 Citation
+
+If this framework inspires your research, please cite it as:
+
+**Monograph and Reading Guide**:
+> Liang, R. (2026). *Structure Recursive Viability Dynamics (SRVD) Monograph V1.0*. Zenodo. https://doi.org/10.5281/zenodo.21322552
+>
+> Liang, R. (2026). *Structure Recursive Viability Dynamics (SRVD) Monograph V1.0 — Reading Guide: Core Theory, Common Misreadings, Falsifiable Predictions, and Theoretical Fingerprints* (v1.1). [GitHub/Gitee Link]
+
+**BibTeX**:
 ```bibtex
-@misc{liang2026srvd,
-  author = {Liang, Ruifeng},
-  title = {Structure Recursive Viability Dynamics (SRVD)},
+@misc{liang_srvd_2026,
+  author = {Ruifeng Liang},
+  title = {Structure Recursive Viability Dynamics (SRVD) Monograph V1.0},
   year = {2026},
-  month = {6},
-  day = {19},
   doi = {10.5281/zenodo.21322552},
-  publisher = {Zenodo},
-  url = {https://doi.org/10.5281/zenodo.21322552}
+  url = {https://github.com/fineflowerqq/fineflower}
 }
 ```
 
-### Permanent Identifiers:
-
-| Platform | DOI / Link |
-|:---|:---|
-| **OSF** | DOI: `10.17605/OSF.IO/MD4Z5` · https://osf.io/md4z5/ |
-| **Zenodo** | DOI: `10.5281/zenodo.21322552` · https://doi.org/10.5281/zenodo.21322552 |
-
-### APA:
-
-> Liang, R. (2026, June 19). *Structure Recursive Viability Dynamics (SRVD)*. https://doi.org/10.5281/zenodo.21322552
-
 ---
 
-## 10. Contact & Discussion
+## 📧 Contact and Author
 
+- **Author**: Ruifeng Liang
 - **Email**: fineflowerrain@gmail.com
-- **Issues**: Open discussion, theoretical counterarguments and simulation improvement suggestions are welcome via repository Issues.
+- **GitHub**: https://github.com/fineflowerqq/fineflower
+
+*Issues, discussions, and attempts to falsify the framework's predictions are all welcome.*
 
 ---
 
-*Last updated: 2026-06-19*
+**In a universe of increasing entropy, put every ordered structure on the same ledger.**
+```
