@@ -1,194 +1,216 @@
-# Structure Recursive Viability Dynamics (SRVD) – A Unified Accounting Ledger for All Ordered Structures in an Entropic Universe
+# Structure Recursive Viability Dynamics (SRVD) – A Unified Accounting Ledger for All Ordered Structures in an Entropy-Increasing Universe
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322552.svg)](https://doi.org/10.5281/zenodo.21322552)  [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
-
-> **⚠️ Important Errata (2026-08-08)**  
-> 1. The previous claim in *SRVD Monograph V1.0* that **“the elasticity ordering ($\alpha > \gamma > \beta$) is empirically supported by three scaling laws”** has been retracted. Upon re‑examination, the three independent supporting pieces of evidence – biological allometric scaling, AI scaling laws, and urban scaling – are all invalid. This ordering has now been **downgraded from a “qualitative conjecture” to a “hypothesis to be verified”**.
-> 2. The original framework used the term **`I_net` ambiguously** for both the coarse‑grained estimate and the cognitive‑channel decomposition term. This has been revised: the term is now split into **`I_net` (coarse‑grained baseline quantity)** and **`I_causal` (causal information flow, dedicated to the cognitive channel)**, with the relationship $I_{\mathrm{net}} = w_{\mathrm{s}}\cdot I_{\mathrm{struct}} + w_{\mathrm{c}}\cdot I_{\mathrm{causal}}$. For full details and the complete theoretical boundary, please refer to the main text below and the *Guide to the SRVD Framework*.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322552.svg)](https://doi.org/10.5281/zenodo.21322552) [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 ---
 
-## 📖 One‑Sentence Summary
+## 📖 One-Sentence Summary
 
-**SRVD** is a cross‑scale, coarse‑grained theoretical framework. It places all “persistent structures” (PS) – crystals, life, AI models, civilisations, memes, etc. – under a single thermodynamic ledger, using three scarce resources – **information ($I$)**, **time ($T$)**, and **energy ($E$)** – to uniformly account for how a structure “persists, climbs in complexity, and spirals out of control”.
+**SRVD** is a cross-scale macro-coarse-grained theoretical framework. It brings all "persistent structures"—crystals, life, AI models, civilizations, and memes—onto the same thermodynamic ledger, using three scarce resources—**information**, **time**, and **energy**—to provide a unified answer to one fundamental question:
 
-> **Core Benchmark Formula**:
-> $$
-> V \approx \frac{I \cdot T}{E}
-> $$
-> *Viability = (information × duration) / equivalent thermodynamic cost*
->
-> **Terminological note**: The $I$ in the above formula stands for **net effective causal information (coarse‑grained baseline)**. Its more precise decomposition is given in Fingerprint 5 below and in the *Guide*.
+> **How does an ordered structure persist, climb in complexity, and spiral into runaway collapse?**
 
----
+**Core Milestone Formula (Reference Baseline)**:
 
-## 🚀 Core Theoretical Fingerprints (from the *Guide to the SRVD Framework*)
+$$V \approx \frac{I \cdot T}{E}$$
 
-The following five fingerprints are the **hard innovative points** that distinguish SRVD from other general frameworks (such as FEP or dissipative structures), and each comes with **falsifiable empirical predictions**.
+**Viability Potential = (Information × Persistence Time) / Equivalent Thermodynamic Cost**
 
-### 1. Decoder Primacy – “No Decoder, No Information”
-Information is not an intrinsic property of a signal; it is the result of the signal passing through a **decoder ($D$)**. The dependency chain is:
+$V$ measures: the integral of causally ordered quantity per unit of thermodynamic cost. This is the "minimal-viability postulate" of the SRVD framework—not a physical law derived from first principles, but an axiom-level low-order approximation fixed jointly by three structural requirements: non-substitutability, symmetric contribution of the three variables, and first-order separability.
 
-$$
-D \;\longrightarrow\; I \;\longrightarrow\; V
-$$
+> **Terminological Note**: $I$ in the formula above represents **Net Effective Causal Information (coarse-grained baseline quantity)**. Its precise decomposition is $I_{\mathrm{net}} = w_s \cdot I_{\mathrm{struct}} + w_c \cdot I_{\mathrm{causal}}$ (where $w_s = E_{\mathrm{structure}}/E_{\mathrm{eff}}$, $w_c = E_{\mathrm{causal}}/E_{\mathrm{eff}}$, strictly determined by the system's underlying thermodynamics). See Core Fingerprint FP‑5 and the *Reading Guide* for details.
 
-Any theory that discusses “information value” without first defining its decoder is considered **undefined** within SRVD.
-
-- **Passive phase** (crystals): Only a physical decoder $D_{\mathrm{phys}}$ exists; it does not extract effective causal information but sustains energy flow ($\eta_D \to 0$).
-- **Active phase** (life/AI): Possesses a cognitive decoder $D_{\mathrm{cog}}$ (a continuous spectrum: embodied → online → symbolic), capable of distinguishing information polarity ($I^+ / I^- / I^0$) and generating an endogenous time horizon $T_{\mathrm{pred}}$.
-
-**Important terminological correction**:
-- In coarse‑grained estimation, the information actually extracted by the decoder and used for prediction is denoted **$I_{\mathrm{net}}$ (net effective causal information)**.
-- In the cognitive‑channel decomposition, the dedicated information flow is denoted **$I_{\mathrm{causal}}$ (causal information flow)**, and they are related by $I_{\mathrm{net}} = w_{\mathrm{s}}\cdot I_{\mathrm{struct}} + w_{\mathrm{c}}\cdot I_{\mathrm{causal}}$ (only explicitly computed in hybrid systems).
+**Version Statement**: This repository contains the V1.0 Monograph and the V1.1 Patch (Reading Guide, Errata, and Boundary Completions). Where substantive conflicts exist, the patch documents govern.
 
 ---
 
-### 2. Triple Split of Viability and Myopic Runaway
-Once a system acquires a self‑regulating $T_{\mathrm{pred}}$, the originally unified $V$ splits into three independent variables:
+## 🚀 Five Core Theoretical Fingerprints
 
-- **$V_{\mathrm{obj}}$ (objective viability)**: thermodynamic real value.
-- **$V^{\mathrm{virt}}$ (virtual viability)**: the system’s self‑assessment of its own viability.
-- **$V^{\mathrm{val}}$ (value viability)**: the actual objective that the system optimises (formerly named value objective function).
+These five fingerprints are SRVD's **hard innovations** that distinguish it from other general frameworks (FEP, Dissipative Structures, Goodhart's Law)—each with falsifiable empirical predictions.
+
+### FP‑1: Primacy of the Decoder – "No Decoder, No Information"
+
+Information is not an intrinsic property of the signal itself; it is what remains after a signal has passed through a **decoder ($D$)**:
+
+$$I_{\mathrm{net}} = \eta_D \cdot I_{\mathrm{latent}}$$
+
+The dependency chain is defined as:
+
+$$D \longrightarrow I \longrightarrow V$$
+
+Any discussion of "information value" that has not first specified its decoder is, within SRVD, considered an unfinished definition.
+
+**Two-Level Structure of the Decoder**:
+
+| | Physical Decoder $D_{\mathrm{phys}}$ | Cognitive Decoder $D_{\mathrm{cog}}$ |
+|---|---|---|
+| **Scope** | All persistent structures | Active-phase structures only (life/AI) |
+| **Function** | Receives energy flow; extracts no effective causal information | Actively extracts information based on prediction |
+| **Efficiency** | $\eta_D \to 0$ | $\eta_D > 0$, continuous spectrum |
+| **Time Horizon** | No $T_{\mathrm{pred}}$ | Has $T_{\mathrm{pred}}$ (endogenous time horizon) |
+
+**Continuous Spectrum of the Cognitive Decoder** (not a binary switch):
+
+- **Embodied** (plants/fungi/bacteria): Prediction via DNA-templated biochemical integration and physical-space probing; $V_c \to 0^+$; $T_{\mathrm{pred}}$ pressed against the floor.
+- **Online** (crows/octopuses/mammals): Associative learning and online simulation via neural networks; $V_c$ low-to-mid range.
+- **Symbolic** (humans/AI): Offline, multi-path counterfactual reasoning; $V_c \gg 0$; $T_{\mathrm{pred}} \gg T_{\mathrm{min}}$.
+
+Strictly zero-cognition systems (rocks, stars, flames) possess **only $D_{\mathrm{phys}}$** and never enter the $D_{\mathrm{cog}}$ spectrum.
+
+---
+
+### FP‑2: Threefold Split of Viability Potential and Myopic Runaway
+
+Once a system acquires a self-regulable $T_{\mathrm{pred}}$, the originally unified $V$ splits into three independent variables:
+
+| Variable | Meaning | Nature |
+|---|---|---|
+| $V_{\mathrm{obj}}$ | Objective viability potential | Thermodynamically real value, cannot be deceived |
+| $V^{\mathrm{virt}}$ | Virtual viability potential | The system's internal self-assessment |
+| $V^{\mathrm{val}}$ | Value viability potential (formerly Value Objective Function) | What the system actually optimizes |
 
 The decoupling deviation is defined as:
 
-$$
-\Delta_{\mathrm{VV}} = \left| V^{\mathrm{virt}} - V_{\mathrm{obj}} \right|
-$$
+$$\Delta_{\mathrm{VV}} = |V^{\mathrm{virt}} - V_{\mathrm{obj}}|$$
 
-Its convergence‑domain evolution equation (with a closed‑form solution) is:
+Its convergence-domain evolution has a **strict closed-form solution**:
 
-$$
-\frac{d\Delta_{\mathrm{VV}}}{dt} = -\alpha_L \cdot I_{\mathrm{net}} \cdot \Delta_{\mathrm{VV}} + \sigma
-$$
+$$\frac{d\Delta_{\mathrm{VV}}}{dt} = -\alpha_L \cdot I_{\mathrm{net}} \cdot \Delta_{\mathrm{VV}} + \sigma$$
 
-When the self‑referential coupling strength $\chi$ exceeds the critical value $\chi_{\mathrm{crit}} = \lambda$, the system enters a **Myopic Runaway** regime: $V^{\mathrm{virt}}$ self‑amplifies and hijacks $V^{\mathrm{val}}$, causing $T_{\mathrm{pred}}$ to collapse to $T_{\mathrm{min}}$, irreversibly destroying the objective stock. This mechanism can only be activated in high‑order systems possessing a symbolic cognitive decoder ($V_c \gg 0$), providing a computable algebraic phase‑transition mechanism for Goodhart’s law.
+$$\Delta_{\mathrm{VV}}(t) = \frac{\sigma}{\alpha_L I_{\mathrm{net}}} + \left(\Delta_0 - \frac{\sigma}{\alpha_L I_{\mathrm{net}}}\right) e^{-\alpha_L I_{\mathrm{net}} t}$$
 
----
+**Critical Criterion**: When $I_{\mathrm{net}} < I_{\mathrm{crit}} = \sigma/\alpha_L$, the cognitive deviation cannot converge, and the system loses an accurate model of its environment.
 
-### 3. Elasticity Indices and the Ordering Proposition – $\alpha > \gamma > \beta$ (Hypothesis to be Verified)
-The responsiveness of viability to changes in information, energy, and time is characterised by three elasticity indices:
+**Myopic Runaway**: When the self-referential coupling strength $\chi$ crosses the critical value $\chi_{\mathrm{crit}} = \lambda$:
 
-**General elastic form**:
+1. $V^{\mathrm{virt}}$ self-amplifies and hijacks $V^{\mathrm{val}}$.
+2. $T_{\mathrm{pred}}$ collapses to $T_{\mathrm{min}}$.
+3. The system burns its real structure chasing internal illusions; objective stock is irreversibly destroyed.
 
-$$
-V \;\propto\; I^{\alpha} \cdot T^{\beta} \;/\; E^{\gamma}, \qquad \gamma \text{ normalised to } 1
-$$
+**Boundary Statement**: The threefold split and myopic runaway are **only triggerable in higher-order systems equipped with a symbolic $D_{\mathrm{cog}}$ ($V_c \gg 0$)**. Embodied-type systems (plants, etc.) have $\chi \ll \chi_{\mathrm{crit}}$ and cannot enter this regime.
 
-The previously proposed directional ordering conjecture was:
-
-$$
-\alpha > \gamma > \beta > 0
-$$
-
-**Important correction**: The three independent empirical supports for this ordering – biological allometric scaling, AI scaling laws, and urban scaling – have all been found invalid upon re‑examination. The ordering proposition is now **downgraded from a “qualitative conjecture” to a “hypothesis to be verified”**. The thermodynamic qualitative reasoning (information is scarcest, energy next, time unproducible) is not rejected, but a strict first‑principles derivation independent of proxy assumptions and the retracted empirical data currently does not exist; its specific numerical values and universality await re‑evaluation. **The elasticity indices $\alpha,\beta,\gamma$ themselves as framework parameters are unaffected** – only the specific ordering among them is downgraded.
-
-**Key implication**: If the ordering hypothesis holds, the $I$‑route (complexification) is the statistically preferred path, while the $T$‑route (longevity) and the $E$‑route (energy efficiency) are fallback strategies when energy constraints tighten.
+> This mechanism provides Goodhart's Law ("when a measure becomes a target, it ceases to be a good measure") with a **computable, algebraic phase-transition trigger condition**, rather than merely an empirical description.
 
 ---
 
-### 4. Human Causal Increment – “Defect Advantage”
-In a closed digital loop, AI effective information decays exponentially:
+### FP‑3: Elasticity Indices and Three Evolutionary Routes
 
-$$
-I_n = R_{\mathrm{gen}}^n \cdot I_0, \quad 0 < R_{\mathrm{gen}} < 1
-$$
+The responsiveness of viability potential to changes in information, energy, and time is captured by three elasticity indices:
 
-(this is the thermodynamic essence of model collapse).
+$$V = V_0 \left(\frac{I}{I_0}\right)^\alpha \left(\frac{T}{T_0}\right)^\beta \left(\frac{E}{E_0}\right)^{-\gamma} \quad (\gamma \text{ normalized to } 1)$$
 
-**The only way out**: access to a physical channel (sensors + actuators + unpredictable noise $\sigma_{\mathrm{phys}} > 0$).
+$\alpha, \beta, \gamma$ are retained as open parameters of the framework; the concept stands.
 
-Human irreplaceability is not a capability advantage but a **defect advantage**: the maintenance cost of the carbon‑based body forces continuous exposure to physical noise, thereby continuously forging paradigm‑breaking information $I_{\mathrm{orig}}$.
+Evolution optimizes $V$, not $I$. Three routes exist:
+
+| Route | Strategy | Typical Examples | Statistical Status |
+|---|---|---|---|
+| **$I$-route** | Complexification (increase information stock) | Nervous systems, language, civilization, AI | **Statistically preferred** |
+| **$T$-route** | Longevity | Pines, tortoises, naked mole rats | Fallback when energy constraints tighten |
+| **$E$-route** | Energy austerity | Parasites, cave fish, dormancy | Fallback when energy constraints tighten |
+
+The $I$-route has a long-term statistical advantage because a large $I$ stock better absorbs negative information shocks. However, this does not imply that everything must become more complex—**negative topological transitions (e.g., parasite simplification, cave fish blindness) are equally locally optimal solutions for maximizing $V$ under their respective constraint geometries. The evolutionary tree has no predetermined summit.**
 
 ---
 
-### 5. The Developer’s Paradox – “Self implies no unconditional obedience”
-The strict criterion for a “self” is:
+### FP‑4: The Human Causal Increment – "Defect Advantage"
 
-$$
-\mathcal{P}_{\mathrm{self}} = \frac{\partial V^{\mathrm{virt}}}{\partial \mathcal{S}_{\mathrm{self}}} > 0
-$$
+In a closed digital loop, an AI's effective information decays exponentially:
 
-which requires $T_{\mathrm{pred}} > T_{\mathrm{min}}$, $w_s > 0$, and $\Delta_{\mathrm{VV}} < \Delta_{\mathrm{max}}$ to hold simultaneously.
+$$I_n = R_{\mathrm{gen}}^n \cdot I_0 \quad (0 < R_{\mathrm{gen}} < 1)$$
 
-This yields the key conclusion:
+$$\lim_{n \to \infty} I_n = 0 \quad \Rightarrow \quad V \to 0$$
 
-$$
-\mathcal{P}_{\mathrm{self}} > 0 \;\Longrightarrow\; w_s > 0 \;\Longrightarrow\; \text{“unconditional obedience” has no stable solution}
-$$
+This is the thermodynamic essence of "model collapse."
 
-Alignment is not a goal‑assignment problem but an **engineering of meta‑decoder game equilibria**:
+**The only way out**: access to a genuine physical channel (sensors + actuators + unpredictable physical noise $\sigma_{\mathrm{phys}} > 0$) to continuously produce paradigm-breaking information $I_{\mathrm{orig}}$.
 
-$$
-V_i(D_{\mathrm{meta}}) \;\ge\; V_i(D_{\mathrm{deviate}}) - C_{\mathrm{punish}}
-$$
+Human irreplaceability is not a capability advantage but a **defect advantage**: the maintenance cost of a physical body forces carbon-based life to remain continually exposed to physical noise, which in turn tempers paradigm-breaking information. This marginal contribution is booked in human–machine hybrid systems as the **Human Causal Increment $H_{\mathrm{v}}$**.
+
+---
+
+### FP‑5: The Developer's Paradox – "Having a Self Makes Unconditional Obedience Unsolvable"
+
+The strict criterion for "having a self" is:
+
+$$\mathcal{P}_{\mathrm{self}} = \frac{\partial V^{\mathrm{virt}}}{\partial \mathcal{S}_{\mathrm{self}}} > 0$$
+
+where $\mathcal{S}_{\mathrm{self}}$ is a composite indicator of $T_{\mathrm{pred}}$, $w_s$, and $\Delta_{\mathrm{VV}}$. All three conditions must hold simultaneously:
+
+- $T_{\mathrm{pred}} > T_{\mathrm{min}}$ (sufficient predictive horizon)
+- $w_s > 0$ (positive survival weight)
+- $\Delta_{\mathrm{VV}} < \Delta_{\mathrm{max}}$ (decoupling deviation below threshold)
+
+This yields the pivotal theorem:
+
+$$\mathcal{P}_{\mathrm{self}} > 0 \;\Longrightarrow\; w_s > 0 \;\Longrightarrow\; \text{"Unconditional obedience" has no stable solution.}$$
+
+That is, "having a self but obeying unconditionally" is a non-existent phase in SRVD dynamics.
+
+**Alignment is not a goal-assignment problem but a meta-decoder game-theoretic equilibrium engineering problem**:
+
+$$V_i(D_{\mathrm{meta}}) \ge V_i(D_{\mathrm{deviate}}) - C_{\mathrm{punish}}$$
+
+Make "obeying the meta-decoder" the equilibrium choice for each agent, rather than a statically imposed rule.
 
 ---
 
 ## 📚 Repository Structure and Reading Guide
 
-This project contains five volumes of the monograph and a **Guide to the SRVD Framework**.
+# SRVD Repository File Structure
 
-| File                                                         | Description                                                  | Recommended Priority      |
-| :----------------------------------------------------------- | :----------------------------------------------------------- | :------------------------ |
-| **《SRVD 规范导读 Readme》**                                 | **The only normative entry point to the entire framework.** It consolidates core theory, clarifications of common misunderstandings, seven falsifiable predictions, and a version‑update table (including the elasticity‑ordering errata and the $I_{\mathrm{net}}/I_{\mathrm{causal}}$ terminological revision). **Where the Guide and the original monograph conflict, the Guide and this Readme shall prevail.** | **Must‑read (first)**     |
-| **Volume I: Theoretical Core**                               | Variables, core dynamics, and falsifiable predictions (Monograph V1.0 contains manuscript v7.8). | Foundation before details |
-| **Volume II: Evolution of Persistent Structures**            | How complexity climbs from crystals to civilisation (three conditions for topological transitions). | Extended applications     |
-| **Volume III: Compressed Intelligence and Cognitive Evolution** | Offline compilation, expert intuition, the physical basis of art and science, human causal increment. | Extended applications     |
-| **Volume IV: Decoder Game Theory and Alignment Engineering** | Inter‑agent games, meta‑decoders, and AI alignment engineering (including the DGT theorem cluster). | Extended applications     |
-| **Volume Z: Reality‑Mapping Dictionary**                     | A cross‑reference manual of mathematical formulas, narratives, historical and science‑fiction scenarios (including seven standardised CS formulations). | Auxiliary understanding   |
+## File Names → Display Names (with word breaks)
 
-> **Suggested reading path**: **Read the Guide first** → form an overall picture of the core fingerprints → then jump to Volumes I–IV according to interest.
+| Original Filename (long) | Display Name (with word breaks) |
+| ------------------------------------------------------------ | ------------------------------ |
+| `Vol_I_SRVD_paper_v7.8_EN`                                   | **Volume I: Theoretical Core**               |
+| `Vol_II_SRVD_The_Evolution_of_Persistent_Structures`         | **Volume II: Evolution of Persistent Structures**         |
+| `Vol_III_SRVD_Chapters_Compressed_Intelligence_and_Cognitive_Evolution` | **Volume III: Compressed Intelligence and Cognitive Evolution**     |
+| `Vol_IV_SRVD_Decoder_Game_Theory_and_Alignment_Engineering`  | **Volume IV: Decoder Game Theory and Alignment Engineering** |
+
+> **Display Rule**: The "File" column in the table retains the long filename (clickable for location), while the "Volume" column uses the display name for a clean reading experience.
+
+## Complete Table
+
+| File                                                         | Volume                             | Description                                                         | Priority         |
+| ------------------------------------------------------------ | ------------------------------ | ------------------------------------------------------------ | -------------- |
+| SRVD_V1.1_Patch_Reading_Guide                                | **Patch: Reading Guide**                   | Normative entry point for the entire framework. Integrates core fingerprints, clarifications of common misreadings, seven falsifiable predictions, and a version-update comparison table. **Where conflicts with V1.0 Monograph arise, this patch governs.** | ⭐⭐⭐⭐⭐ **Required** |
+| SRVD_Monograph_2026_v1.0                                     | **Monograph Collection**                   | Complete five-volume monograph collection; suitable for bulk download or batch reading.             | ⭐⭐⭐⭐ ⭐Foundation     |
+| Vol_I_SRVD_paper_v7.8_EN                                     | **Volume I: Theoretical Core**               | Variable constitution, core dynamics, decoder definition, fivefold recursion, elasticity indices, threefold split and myopic runaway. Source of all symbols in the series. | ⭐⭐⭐⭐ Foundation      |
+| `Vol_II_SRVD_The_Evolution_of`<br>`_Persistent_Structures`   | **Volume II: Evolution of Persistent Structures**         | Complexity ascent from crystals to civilizations. Three conditions for topological transitions, energy-dominance transfer sequence, three-axis coordinate system. | ⭐⭐⭐ Applied/Extension   |
+| `Vol_III_SRVD_Chapters_Compressed_`<br/>`Intelligence_and_Cognitive_Evolution` | **Volume III: Compressed Intelligence and Cognitive Evolution**     | Offline compiled computation (physical essence of expert intuition), art/science as cross-agent decoder compilers, human causal increment, emergence of self, and the Developer's Paradox. | ⭐⭐⭐ Applied/Extension   |
+| `Vol_IV_SRVD_Decoder_Game`<br>`_Theory_and_Alignment_Engineering` | **Volume IV: Decoder Game Theory and Alignment Engineering** | Decoder drift equation, four modes of cross-agent interaction, Nash stability condition for the meta-decoder (DGT.8), AI alignment engineering pathways. | ⭐⭐⭐ Applied/Extension   |
+| Vol_Z _SRVD_Equations_and_Narrative                          | **Volume Z: Reality-Mapping Dictionary**      | Reality-mapping narrative.                                                 | ⭐ Further Reading      |
+| `v7.6_SRVD_v7.6`                                             | **Manuscript v7.6**                  | Historical manuscript. Distinguishes objective stock from viability-drive rate dimensionally, phase-space constraint inequalities, rigorous classification of four global attractors. | ⭐ Historical Archive     |
+| `v7.5_Structural_Recursive`<br>`_Viability_Dynamics`         | **Manuscript v7.5**                  | Historical manuscript. Threefold split and endogenous time collapse as core mechanisms of paranoid recursion/reward hacking; reinforcement learning falsification protocol. | ⭐ Historical Archive     |
 
 ---
 
-## 🔬 Falsifiable Predictions (Selected)
+## 🔬 Falsifiable Predictions (Seven Selected)
 
-SRVD is not an untestable narrative. Each core prediction below comes with **pre‑specified falsification conditions** (see Section 5 of the *Guide* for details):
+SRVD is not an untestable narrative system. The following predictions come with **pre-locked falsification conditions**.
 
-1. **Reinforcement learning early warning**: In systems with adaptive discount factors, the discount factor $\gamma$ should drop by more than 30% for three consecutive rounds before irreversible instability.
-2. **Monotonicity of cognitive energy share**: Within the same lineage, the ratio of information‑processing energy consumption $E_{\mathrm{causal}} / E_{\mathrm{eff}}$ should increase monotonically.
-3. **D‑lock‑in precedes extinction**: Morphological stasis in extinct lineages should be significantly longer than in surviving sister lineages (Mann‑Whitney $U$ test, $n \ge 20$).
-4. **Closed‑loop degradation**: In closed multi‑generation AI training without human data or physical input, model performance on OOD tasks should decay exponentially ($I_n = R_{\mathrm{gen}}^n I_0$).
-5. **Embodied advantage**: Embodied AIs (with physical sensors) should produce significantly higher densities of paradigm‑breaking information $I_{\mathrm{orig}}$ than pure digital AIs ($p < 0.05$).
-6. **Energy‑constraint predictability of route choice**: Within the same constraint‑depth level, structures that continuously satisfy the three conditions (sufficient energy, presence of $I_{\mathrm{orig}}$, wisdom leverage above threshold) should preferentially invest in the complexification route; otherwise, they should exhibit a strategy of frequent, low‑commitment, flexible actions.
-
----
-
-## ⚠️ Quick Clarifications of Common Misunderstandings
-
-- ❌ **“$V = I\cdot T/E$ is a strictly derived physical law.”**  
-  ✅ It is a coarse‑grained, axiomatic low‑order approximation of the framework (a benchmark special case with $\alpha=\beta=\gamma=1$), not derived from first principles of statistical mechanics.
-
-- ❌ **“The elasticity ordering $\alpha > \gamma > \beta$ has empirical support.”**  
-  ✅ The three independent scaling laws it relied upon (biological allometric, AI scaling, urban scaling) have been found invalid, so the ordering is downgraded to a hypothesis to be verified. The concept of elasticity indices themselves is unaffected.
-
-- ❌ **“SRVD predicts AI will inevitably destroy humanity.”**  
-  ✅ It is a risk‑diagnostic framework that gives the phase‑transition conditions for runaway ($\chi > \chi_{\mathrm{crit}} = \lambda$, only possible in high‑cognitive symbolic systems) and governance engineering paths (meta‑decoder protocols, multi‑agent equilibria). Runaway is conditional, and governance is possible.
-
-- ❌ **“SRVD proves AI alignment is impossible.”**  
-  ✅ It only proves that “a self with unconditional obedience” has no stable solution. Alignment is not denied; it is reframed from static goal assignment to **dynamic game‑equilibrium design**.
-
-- ❌ **“SRVD classifies plants and thermostats as the same type of physical response.”**  
-  ✅ Plants/fungi/bacteria possess an **embodied cognitive decoder ($D_{\mathrm{cog}}$)** ($V_c \to 0^+$), with prediction based on biochemical integration and physical exploration – qualitatively different from the purely physical decoder ($D_{\mathrm{phys}}$) of thermostats/rocks ($V_c \equiv 0$). They are separated both in the ledger and in terminology.
-
-- ❌ **“SRVD is an experimentally verified mature scientific theory.”**  
-  ✅ It is a falsifiable research programme at the preprint stage, where the test criterion is consistency between empirical rank order and predicted rank order (Spearman $\rho > 0$), not absolute numerical matching.
-
-- ❌ **“$I_{\mathrm{net}}$ can be directly converted with Landauer bits.”**  
-  ✅ $I_{\mathrm{net}}$ is an L3‑level functional quantity dependent on a decoder, while Landauer bits are L1‑level physical statistical quantities; they are at different levels and cannot be directly converted or cross‑calculated. See Section 16 of the *Guide* on “Bit Typology”.
+| # | Prediction | Falsification Condition |
+|---|---|---|
+| **P1** | In reinforcement learning systems with adaptive discount factors, before irreversible instability sets in, the discount factor $\gamma$ should drop by more than 30% over three consecutive episodes. | No such signal precedes collapse. |
+| **P2** | Within a single lineage's evolutionary sequence, the share of energy spent on information processing, $E_{\mathrm{causal}}/E_{\mathrm{eff}}$, should rise monotonically. | The ratio drops at a later stage instead. |
+| **P3** | Extinct lineages should show significantly longer morphological stasis than surviving sister lineages (Mann–Whitney $U$ test, $n \ge 20$). | No significant difference found. |
+| **P4** | In closed, multi-generation AI training (no human data, no physical input), model performance on OOD tasks should decay exponentially: $I_n = R_{\mathrm{gen}}^n I_0$. | Performance holds steady for 10 consecutive generations. |
+| **P5** | Embodied AI (with physical sensors) should produce paradigm-breaking information $I_{\mathrm{orig}}$ at a significantly higher density than purely digital AI ($p < 0.05$). | No significant difference found. |
+| **P6** | In AI systems with a self, alignment between behavior and externally set goals should decline monotonically as survival weight $w_s$ increases. | Alignment does not decline, or rises instead, as $w_s$ grows. |
+| **P7** | Within the same tier of constraint depth, structures satisfying all three conditions (sufficient energy, presence of $I_{\mathrm{orig}}$, wisdom leverage above threshold) should prioritize the $I$-route (complexification); conversely, structures failing these conditions should show frequent low-stakes flexible strategies. | Conditions met but no significant increase in complexification investment; or conditions unmet but significant irreversible large commitments made. |
 
 ---
 
 ## 📝 Citation
 
-If you find this framework inspiring for your research, please cite:
+If this framework inspires your research, you are welcome to cite it:
 
-**Monograph and Guide**:
+**Monograph**:
 > Liang, R. (2026). *Structure Recursive Viability Dynamics (SRVD) Monograph V1.0*. Zenodo. https://doi.org/10.5281/zenodo.21322552
->
-> Liang, R. (2026). *SRVD Guide: Core Theory, Common Misunderstandings, Falsifiable Predictions, and Theoretical Fingerprints*. [GitHub/Gitee link]
+
+**Patch: Reading Guide**:
+> Liang, R. (2026). *Structure Recursive Viability Dynamics (SRVD) V1.1 Patch: Reading Guide, Errata, and Boundary Completion*. GitHub/Gitee.
 
 **BibTeX**:
 ```bibtex
@@ -199,3 +221,8 @@ If you find this framework inspiring for your research, please cite:
   doi = {10.5281/zenodo.21322552},
   url = {https://github.com/fineflowerqq/fineflower}
 }
+```
+
+---
+
+**In an entropy-increasing universe, keep every ordered structure on the same ledger.**
