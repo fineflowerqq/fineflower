@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use SRVD or RIF, please cite the Zenodo records below."
+title: "Structure Recursive Viability Dynamics (SRVD) v1.5 — Five-Volume Combined Edition"
+abstract: "SRVD is a cross-scale, macroscopic, coarse-grained framework that brings all persistent structures — crystals, living systems, AI models, civilizations, and memes — under one information–time–energy description."
+authors:
+  - name: "LiangRuifeng"
+    orcid: "https://orcid.org/0009-0002-8575-7127"
+version: "v1.5"
+date-released: "2026-11-19"
+doi: "10.5281/zenodo.24365889"
+url: "https://github.com/fineflowerqq/fineflower"
+license: "CC-BY-4.0"
+keywords:
+  - SRVD
+  - complex systems
+  - non-equilibrium thermodynamics
+  - information theory
+  - AI alignment
+  - viability
+  - persistent structures
+references:
+  - type: software
+    title: "Reproducibility package for Relational Information Framework (RIF) v1.5 and Structure Recursive Viability Dynamics (SRVD) v1.5"
+    authors:
+      - name: "LiangRuifeng"
+    version: "v1.5"
+    date-released: "2026-11-19"
+    doi: "10.5281/zenodo.24349831"
+  - type: generic
+    title: "Relational Information Framework (RIF) v1.5 — Measuring Relational Information Through a Decoder"
+    authors:
+      - name: "LiangRuifeng"
+    version: "v1.5"
+    date-released: "2026-11-19"
+    doi: "10.5281/zenodo.24365795"
