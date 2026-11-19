@@ -1,6 +1,6 @@
 # Structure Recursive Viability Dynamics (SRVD) – A Unified Accounting Ledger for All Ordered Structures in an Entropy-Increasing Universe
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21322552.svg)](https://doi.org/10.5281/zenodo.21322552) [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![SRVD v1.5 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24365889.svg)](https://doi.org/10.5281/zenodo.24365889) [![RIF v1.5 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24365795.svg)](https://doi.org/10.5281/zenodo.24365795) [![Reproducibility package](https://zenodo.org/badge/DOI/10.5281/zenodo.24349831.svg)](https://doi.org/10.5281/zenodo.24349831) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ---
 
@@ -20,7 +20,7 @@ $V$ measures: the integral of causally ordered quantity per unit of thermodynami
 
 > **Terminological Note**: $I$ in the formula above represents **Net Effective Causal Information (coarse-grained baseline quantity)**. Its precise decomposition is $I_{\mathrm{net}} = w_s \cdot I_{\mathrm{struct}} + w_c \cdot I_{\mathrm{causal}}$ (where $w_s = E_{\mathrm{structure}}/E_{\mathrm{eff}}$, $w_c = E_{\mathrm{causal}}/E_{\mathrm{eff}}$, strictly determined by the system's underlying thermodynamics). See Core Fingerprint FP‑5 and the *Reading Guide* for details.
 
-**Version Statement**: This repository contains the V1.0 Monograph and the V1.1 Patch (Reading Guide, Errata, and Boundary Completions). Where substantive conflicts exist, the patch documents govern.
+**Version Statement**: This repository hosts the current **v1.5** editions of SRVD (five-volume combined edition) and of the companion **Relational Information Framework (RIF)**, together with the v1.5 reproducibility package. The earlier V1.0 Monograph and V1.1 Patch are retained under *Previous editions* for traceability; where substantive conflicts exist, **v1.5 governs**.
 
 ---
 
@@ -155,34 +155,36 @@ Make "obeying the meta-decoder" the equilibrium choice for each agent, rather th
 
 ---
 
-## 📚 Repository Structure and Reading Guide
+## 📚 Repository Contents
 
-# SRVD Repository File Structure
+### Current release — v1.5 (19 November 2026)
 
-## File Names → Display Names (with word breaks)
+| File | Language | Description |
+|---|---|---|
+| `SRVD_v1.5_EN.pdf` / `SRVD_v1.5_EN.md` | English | **Structure Recursive Viability Dynamics (SRVD) v1.5 — Five-Volume Combined Edition.** Current normative edition of the framework. |
+| `SRVD_v1.5_CN.pdf` / `SRVD_v1.5_CN.md` | 中文 | SRVD v1.5 五卷合订本（中文版）。 |
+| `RIF_v1.5_EN.pdf` / `RIF_v1.5_EN.md` | English | **Relational Information Framework (RIF) v1.5 — Measuring Relational Information Through a Decoder.** Companion framework; supplies the measurement layer used by SRVD. |
+| `RIF_v1.5_CN.pdf` / `RIF_v1.5_CN.md` | 中文 | RIF v1.5（中文版）。 |
+| `RIF_SRVD_reproducibility_v1.5.zip` | — | Code, data, and verification scripts for every numerical figure and table in the v1.5 books; includes `SHA256SUMS`. |
 
-| Original Filename (long) | Display Name (with word breaks) |
-| ------------------------------------------------------------ | ------------------------------ |
-| `Vol_I_SRVD_paper_v7.8_EN`                                   | **Volume I: Theoretical Core**               |
-| `Vol_II_SRVD_The_Evolution_of_Persistent_Structures`         | **Volume II: Evolution of Persistent Structures**         |
-| `Vol_III_SRVD_Chapters_Compressed_Intelligence_and_Cognitive_Evolution` | **Volume III: Compressed Intelligence and Cognitive Evolution**     |
-| `Vol_IV_SRVD_Decoder_Game_Theory_and_Alignment_Engineering`  | **Volume IV: Decoder Game Theory and Alignment Engineering** |
+**Recommended reading order**
 
-> **Display Rule**: The "File" column in the table retains the long filename (clickable for location), while the "Volume" column uses the display name for a clean reading experience.
+1. `SRVD_v1.5_EN.pdf` (or `SRVD_v1.5_CN.pdf`) — the framework itself.
+2. `RIF_v1.5_EN.pdf` (or CN) — how relational information is measured through a decoder.
+3. `RIF_SRVD_reproducibility_v1.5.zip` — reproduce the numbers before relying on them.
 
-## Complete Table
+### Previous editions — v1.0 / v1.1
 
-| File                                                         | Volume                             | Description                                                         | Priority         |
-| ------------------------------------------------------------ | ------------------------------ | ------------------------------------------------------------ | -------------- |
-| SRVD_V1.1_Patch_Reading_Guide                                | **Patch: Reading Guide**                   | Normative entry point for the entire framework. Integrates core fingerprints, clarifications of common misreadings, seven falsifiable predictions, and a version-update comparison table. **Where conflicts with V1.0 Monograph arise, this patch governs.** | ⭐⭐⭐⭐⭐ **Required** |
-| SRVD_Monograph_2026_v1.0                                     | **Monograph Collection**                   | Complete five-volume monograph collection; suitable for bulk download or batch reading.             | ⭐⭐⭐⭐⭐Foundation     |
-| Vol_I_SRVD_paper_v7.8_EN                                     | **Volume I: Theoretical Core**               | Variable constitution, core dynamics, decoder definition, fivefold recursion, elasticity indices, threefold split and myopic runaway. Source of all symbols in the series. | ⭐⭐⭐⭐ Foundation      |
-| `Vol_II_SRVD_The_Evolution_of`<br>`_Persistent_Structures`   | **Volume II: Evolution of Persistent Structures**         | Complexity ascent from crystals to civilizations. Three conditions for topological transitions, energy-dominance transfer sequence, three-axis coordinate system. | ⭐⭐⭐ Applied/Extension   |
-| `Vol_III_SRVD_Chapters_Compressed_`<br/>`Intelligence_and_Cognitive_Evolution` | **Volume III: Compressed Intelligence and Cognitive Evolution**     | Offline compiled computation (physical essence of expert intuition), art/science as cross-agent decoder compilers, human causal increment, emergence of self, and the Developer's Paradox. | ⭐⭐⭐ Applied/Extension   |
-| `Vol_IV_SRVD_Decoder_Game`<br>`_Theory_and_Alignment_Engineering` | **Volume IV: Decoder Game Theory and Alignment Engineering** | Decoder drift equation, four modes of cross-agent interaction, Nash stability condition for the meta-decoder (DGT.8), AI alignment engineering pathways. | ⭐⭐⭐ Applied/Extension   |
-| Vol_Z _SRVD_Equations_and_Narrative                          | **Volume Z: Reality-Mapping Dictionary**      | Reality-mapping narrative.                                                 | ⭐ Further Reading      |
-| `v7.6_SRVD_v7.6`                                             | **Manuscript v7.6**                  | Historical manuscript. Distinguishes objective stock from viability-drive rate dimensionally, phase-space constraint inequalities, rigorous classification of four global attractors. | ⭐ Historical Archive     |
-| `v7.5_Structural_Recursive`<br>`_Viability_Dynamics`         | **Manuscript v7.5**                  | Historical manuscript. Threefold split and endogenous time collapse as core mechanisms of paranoid recursion/reward hacking; reinforcement learning falsification protocol. | ⭐ Historical Archive     |
+| File | Description |
+|---|---|
+| `SRVD_V1.1_Patch_Reading_Guide.md` | V1.1 patch: reading guide, errata, and boundary completions. Zenodo: [10.5281/zenodo.22027891](https://doi.org/10.5281/zenodo.22027891). |
+| `SRVD_Monograph2026v1.0.md`, `结构递归存续动力学SRVD专著1.0.md` | V1.0 monograph, English / Chinese. Zenodo: [10.5281/zenodo.21322552](https://doi.org/10.5281/zenodo.21322552). |
+| `Vol_I_SRVD_paper_v7.8_EN.md`, `Vol_II_…`, `Vol_III_…`, `Vol_IV_…`, `Vol_Z …` | V1.0 five-volume sources (English). |
+| `卷Ⅰ_SRVD_结构递归存续动力学v7.8.md`, `卷Ⅱ_…`, `卷Ⅲ_…`, `卷Ⅳ_…`, `卷Z_…` | V1.0 five-volume sources (Chinese). |
+| `SRVD_AppendixA_Simulation.html` | Appendix A simulation walkthrough. |
+| `archive/` | Historical manuscripts v6.0–v7.6, kept for traceability. |
+
+> The five-volume display names used in earlier revisions remain valid for the `Vol_*` files: Volume I — Theoretical Core; Volume II — Evolution of Persistent Structures; Volume III — Compressed Intelligence and Cognitive Evolution; Volume IV — Decoder Game Theory and Alignment Engineering; Volume Z — Reality-Mapping Dictionary.
 
 ---
 
@@ -204,24 +206,42 @@ SRVD is not an untestable narrative system. The following predictions come with 
 
 ## 📝 Citation
 
-If this framework inspires your research, you are welcome to cite it:
+If this framework is useful to your research, please cite the current versions:
 
-**Monograph**:
-> Liang, R. (2026). *Structure Recursive Viability Dynamics (SRVD) Monograph V1.0*. Zenodo. https://doi.org/10.5281/zenodo.21322552
+**SRVD v1.5**
+> LiangRuifeng. (2026). *Structure Recursive Viability Dynamics (SRVD) v1.5 — Five-Volume Combined Edition*. Zenodo. https://doi.org/10.5281/zenodo.24365889
 
-**Patch: Reading Guide**:
-> Liang, R. (2026). *Structure Recursive Viability Dynamics (SRVD) V1.1 Patch: Reading Guide, Errata, and Boundary Completion*. GitHub/Gitee.
+**RIF v1.5**
+> LiangRuifeng. (2026). *Relational Information Framework (RIF) v1.5 — Measuring Relational Information Through a Decoder*. Zenodo. https://doi.org/10.5281/zenodo.24365795
 
-**BibTeX**:
+**Reproducibility package**
+> LiangRuifeng. (2026). *Reproducibility package for Relational Information Framework (RIF) v1.5 and Structure Recursive Viability Dynamics (SRVD) v1.5*. Zenodo. https://doi.org/10.5281/zenodo.24349831
+
+**Earlier versions** (only when citing the historical edition):
+> LiangRuifeng. (2026). *Structure Recursive Viability Dynamics (SRVD) Monograph v1.0*. Zenodo. https://doi.org/10.5281/zenodo.21322552
+>
+> LiangRuifeng. (2026). *SRVD V1.1 Patch: Reading Guide, Errata, and Boundary Completion*. Zenodo. https://doi.org/10.5281/zenodo.22027891
+
+**BibTeX**
 ```bibtex
-@misc{liang_srvd_2026,
-  author = {Ruifeng Liang},
-  title = {Structure Recursive Viability Dynamics (SRVD) Monograph V1.0},
+@misc{liangruifeng_srvd_v15_2026,
+  author = {LiangRuifeng},
+  title = {Structure Recursive Viability Dynamics (SRVD) v1.5 -- Five-Volume Combined Edition},
   year = {2026},
-  doi = {10.5281/zenodo.21322552},
+  doi = {10.5281/zenodo.24365889},
+  url = {https://github.com/fineflowerqq/fineflower}
+}
+
+@misc{liangruifeng_rif_v15_2026,
+  author = {LiangRuifeng},
+  title = {Relational Information Framework (RIF) v1.5 -- Measuring Relational Information Through a Decoder},
+  year = {2026},
+  doi = {10.5281/zenodo.24365795},
   url = {https://github.com/fineflowerqq/fineflower}
 }
 ```
+
+**License**: text and figures are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); code in the reproducibility package is released under the terms stated in its `LICENSE.md`.
 
 ---
 
