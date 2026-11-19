@@ -32,7 +32,7 @@ These five fingerprints are SRVD's **hard innovations** that distinguish it from
 
 Information is not an intrinsic property of the signal itself; it is what remains after a signal has passed through a **decoder ($D$)**:
 
-$$I_{\mathrm{net}} = \eta_D \cdot I_{\mathrm{latent}}$$
+$$I_{\mathrm{active}} = \eta_D \cdot I_{\mathrm{latent}}$$
 
 The dependency chain is defined as:
 
@@ -40,22 +40,24 @@ $$D \longrightarrow I \longrightarrow V$$
 
 Any discussion of "information value" that has not first specified its decoder is, within SRVD, considered an unfinished definition.
 
-**Two-Level Structure of the Decoder**:
+**Three-Level Structure of Decoders**:
 
-| | Physical Decoder $D_{\mathrm{phys}}$ | Cognitive Decoder $D_{\mathrm{cog}}$ |
-|---|---|---|
-| **Scope** | All persistent structures | Active-phase structures only (life/AI) |
-| **Function** | Receives energy flow; extracts no effective causal information | Actively extracts information based on prediction |
-| **Efficiency** | $\eta_D \to 0$ | $\eta_D > 0$, continuous spectrum |
-| **Time Horizon** | No $T_{\mathrm{pred}}$ | Has $T_{\mathrm{pred}}$ (endogenous time horizon) |
+| | No decoder $D=\varnothing$ | Physical decoder $D_{\mathrm{phys}}$ | Cognitive decoder $D_{\mathrm{cog}}$ |
+|---|---|---|---|
+| **Criterion** | No self-maintained boundary | Selective extraction with a self-maintained boundary, serving the persistence of the structure behind that boundary | A predictive model superimposed on $D_{\mathrm{phys}}$, able to model its own extraction mode |
+| **Typical instances** | Rocks, crystals, stars, flames, thermostats | Ion channels, bacterial chemotaxis, plant phototropism; bacteria, plants, fungi, lower animals | Crows, octopuses, mammals, humans, embodied AI |
+| **Efficiency** | — | $\eta_D$ low and roughly constant | $\eta_D > 0$; can rise with learning |
+| **Time Horizon** | — | $T_{\mathrm{pred}}$ pinned to $T_{\mathrm{min}}$ | $T_{\mathrm{pred}}$ extendable (endogenous horizon) |
 
-**Continuous Spectrum of the Cognitive Decoder** (not a binary switch):
+**Static vs. dynamic $D_{\mathrm{phys}}$**: static — selection rules fixed by a long historical process (ion channels, dormancy switches); dynamic — real-time feedback comparing "now" with "a moment ago" (bacterial chemotaxis, plant phototropism).
 
-- **Embodied** (plants/fungi/bacteria): Prediction via DNA-templated biochemical integration and physical-space probing; $V_c \to 0^+$; $T_{\mathrm{pred}}$ pressed against the floor.
-- **Online** (crows/octopuses/mammals): Associative learning and online simulation via neural networks; $V_c$ low-to-mid range.
-- **Symbolic** (humans/AI): Offline, multi-path counterfactual reasoning; $V_c \gg 0$; $T_{\mathrm{pred}} \gg T_{\mathrm{min}}$.
+**Continuous Spectrum of the Cognitive Decoder** (not a binary switch; three axes: history dependence, persistence coupling, plasticity time scale):
 
-Strictly zero-cognition systems (rocks, stars, flames) possess **only $D_{\mathrm{phys}}$** and never enter the $D_{\mathrm{cog}}$ spectrum.
+- **Embodied region** (bacteria, mimosa, plant tropisms): all three axes low; this region lies inside the decoding-complexity space but **below $D_{\mathrm{cog}}$**, and is recorded as $D_{\mathrm{phys}}$.
+- **Online region** (crows, octopuses, most mammals): medium-to-high on the three axes; plasticity operates within an individual's lifetime.
+- **Symbolic region** (humans, some AI): high on the three axes; offline deduction, counterfactuals, and symbol manipulation.
+
+Structures without a self-maintained boundary — rocks, crystals, stars, flames, thermostats — have **no decoder at all** ($D=\varnothing$) and never enter the $D_{\mathrm{cog}}$ spectrum. A thermostat is not $D_{\mathrm{phys}}$: what it maintains is the user's comfort, not its own boundary.
 
 ---
 
