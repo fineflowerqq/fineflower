@@ -1,35 +1,49 @@
 cff-version: 1.2.0
 message: "If you use SRVD or RIF, please cite the Zenodo records below."
+type: book
 title: "Structure Recursive Viability Dynamics (SRVD) v1.5 — Five-Volume Combined Edition"
-abstract: "SRVD is a cross-scale, macroscopic, coarse-grained framework that brings all persistent structures — crystals, living systems, AI models, civilizations, and memes — under one information–time–energy description."
+abstract: "SRVD is a cross-scale, coarse-grained theoretical framework that treats crystals, living systems, AI models, civilizations and memes as persistent structures governed by one information-time-energy dynamics. Its core quantity is the viability potential V, with baseline V ≈ I·T/E and a general power-law form with ITE elasticity exponents. Its foundational axiom is that information exists only relative to a decoder (D → I → V). The edition includes a pre-registered list of ten falsifiable predictions with refutation conditions and a companion measurement framework (RIF). Status: theoretical framework; no independent empirical test completed."
 authors:
-  - name: "LiangRuifeng"
+  - family-names: "Liang"
+    given-names: "Ruifeng"
     orcid: "https://orcid.org/0009-0002-8575-7127"
 version: "v1.5"
 date-released: "2026-11-19"
 doi: "10.5281/zenodo.24365889"
-url: "https://github.com/fineflowerqq/fineflower"
+url: "https://doi.org/10.5281/zenodo.24365889"
+repository-code: "https://github.com/fineflowerqq/fineflower"
 license: "CC-BY-4.0"
 keywords:
   - SRVD
-  - complex systems
+  - Structure Recursive Viability Dynamics
+  - viability potential
+  - persistent structure
+  - decoder
+  - information thermodynamics
   - non-equilibrium thermodynamics
   - information theory
+  - complex systems
+  - cross-scale dynamics
+  - emergence
   - AI alignment
-  - viability
-  - persistent structures
+  - AI safety
+  - relational information
+  - philosophy of information
+  - measurement theory
 references:
   - type: software
     title: "Reproducibility package for Relational Information Framework (RIF) v1.5 and Structure Recursive Viability Dynamics (SRVD) v1.5"
     authors:
-      - name: "LiangRuifeng"
+      - family-names: "Liang"
+        given-names: "Ruifeng"
     version: "v1.5"
     date-released: "2026-11-19"
     doi: "10.5281/zenodo.24349831"
   - type: generic
     title: "Relational Information Framework (RIF) v1.5 — Measuring Relational Information Through a Decoder"
     authors:
-      - name: "LiangRuifeng"
+      - family-names: "Liang"
+        given-names: "Ruifeng"
     version: "v1.5"
     date-released: "2026-11-19"
     doi: "10.5281/zenodo.24365795"
